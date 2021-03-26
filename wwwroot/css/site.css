@@ -573,11 +573,12 @@ input:focus {
 #loginbtn {
     color: black;
     background-color: hotpink;
-    padding: 15px 20px;
     border: thin;
+    padding: 0px;
     cursor: pointer;
     opacity: 0.9;
     font-weight: bold;
+    width:100px;
 }
 
 #logopic {
@@ -591,4 +592,5 @@ input:focus {
 
 #loginbtn:hover {
     opacity: 1;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
