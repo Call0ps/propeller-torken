@@ -286,10 +286,10 @@ body {
     display: flex;
 }
 
-.item:nth-child(3) {
-border-top: 1px solid #E1E8EE;
-border-bottom: 1px solid #E1E8EE;
-}
+    .item:nth-child(3) {
+        border-top: 1px solid #E1E8EE;
+        border-bottom: 1px solid #E1E8EE;
+    }
 
 .is-active {
     animation-name: animate;
@@ -317,29 +317,29 @@ border-bottom: 1px solid #E1E8EE;
     margin-right: 50px;
 }
 
-Let’s add some basic style to product name and description.
+/*Let’s add some basic style to product name and description.*/
 .description {
     padding-top: 10px;
     margin-right: 60px;
     width: 115px;
 }
 
-.description span {
-    display: block;
-    font-size: 14px;
-    color: #43484D;
-    font-weight: 400;
-}
-
-    .description span:first-child {
-        margin-bottom: 5px;
+    .description span {
+        display: block;
+        font-size: 14px;
+        color: #43484D;
+        font-weight: 400;
     }
 
-    .description span:last-child {
-        font-weight: 300;
-        margin-top: 8px;
-        color: #86939E;
-    }
+        .description span:first-child {
+            margin-bottom: 5px;
+        }
+
+        .description span:last-child {
+            font-weight: 300;
+            margin-top: 8px;
+            color: #86939E;
+        }
 
 .quantity {
     padding-top: 20px;
@@ -422,7 +422,7 @@ input:focus {
 #CustomerConfirmButton {
     background-color: aquamarine
 }
- /*Pop-up button
+/*Pop-up button
 ---------------------------------------------------/
 / Popup container /*/
 .popup {
@@ -431,7 +431,7 @@ input:focus {
     cursor: pointer;
 }
 
-  /*  / The actual popup (appears on top) /*/
+    /*  / The actual popup (appears on top) /*/
     .popup .popuptext {
         visibility: hidden;
         width: 160px;
@@ -447,7 +447,7 @@ input:focus {
         margin-left: -80px;
     }
 
-       /* / Popup arrow /*/
+        /* / Popup arrow /*/
         .popup .popuptext::after {
             content: "";
             position: absolute;
@@ -459,15 +459,15 @@ input:focus {
             border-color: #555 transparent transparent transparent;
         }
 
-   /* / Toggle this class when clicking on the popup container (hide and show the popup) /*/
+    /* / Toggle this class when clicking on the popup container (hide and show the popup) /*/
     .popup .show {
         visibility: visible;
         -webkit-animation: fadeIn 1s;
         animation: fadeIn 1s
     }
 
-/*/ Add animation (fade in the popup) 
-*/@-webkit-keyframes fadeIn {
+/*/ Add animation (fade in the popup)
+*/ @-webkit-keyframes fadeIn {
     from {
         opacity: 0;
     }
@@ -486,6 +486,7 @@ input:focus {
         opacity: 1;
     }
 }
+
 .showup {
     width: 100px;
     height: 100px;
@@ -495,7 +496,7 @@ input:focus {
     cursor: pointer;
     padding-bottom: 10px;
 }
-=======
+
 .columnOrders {
     display: flex;
     justify-content: center;
