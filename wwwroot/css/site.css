@@ -3,88 +3,85 @@ for details on configuring this project to bundle and minify static web assets. 
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@500&display=swap');
 
-
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
+
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
-  background-color:white;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
 
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: white;
+}
 
 #homePageIntroOne {
-    
     animation-duration: 3s;
     animation-name: slidein;
-    font-size:80px;
-    text-align:center;
-
-    font-family:'Roboto', sans-serif;
-
-    
+    font-size: 80px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
 }
 
 @keyframes slidein {
@@ -166,11 +163,11 @@ body {
 #employeePhoto {
     animation-duration: 25s;
     animation-name: slidein;
-    margin-left:auto;
-    margin-right:auto;
-    display:block;
-    position:center;
-    text-align:center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    position: center;
+    text-align: center;
 }
 
 @keyframes slideinagain {
@@ -186,7 +183,7 @@ body {
 }
 
 #homePageIntroFive {
-    animation-duration:25s;
+    animation-duration: 25s;
     animation-name: slidein;
     text-align: center;
 }
@@ -203,24 +200,24 @@ body {
     }
 }
 
-    .ProductHeader {
-        text-align: center;
-        border: 5px hidden;
-        font-size: 50px;
-        font-family: Arial;
-    }
+.ProductHeader {
+    text-align: center;
+    border: 5px hidden;
+    font-size: 50px;
+    font-family: Arial;
+}
 
-    .sidebar {
-        height: 100%;
-        width: 200px;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        background-color: #111;
-        overflow-x: hidden;
-        padding-top: 16px;
-    }
+.sidebar {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 16px;
+}
 
     .sidebar a {
         padding: 6px 8px 6px 16px;
@@ -229,6 +226,7 @@ body {
         color: #818181;
         display: block;
     }
+
         .sidebar a:hover {
             color: #f1f1f1;
         }
@@ -240,17 +238,6 @@ body {
 
 @media screen and (max-height: 450px) {
     .sidebar {
-    .sidebar a:hover {
-        color: #f1f1f1;
-    }
-
-    .main {
-        margin-left: 160px; /* Same as the width of the sidenav */
-        padding: 0px 10px;
-    }
-
-    @media screen and (max-height: 450px) {
-        .sidebar {
         padding-top: 15px;
     }
 
@@ -295,7 +282,7 @@ body {
     height: 100%;
 }
 
-#currentorderlist{
+#currentorderlist {
     border-style: solid;
     border-width: medium;
 }
@@ -303,7 +290,7 @@ body {
 #pCarlLeker {
     animation-duration: 3s;
     animation-name: slidein;
-    font-size:30px;
+    font-size: 30px;
 }
 
 @keyframes slidein {
@@ -318,24 +305,24 @@ body {
     }
 }
 
-.icon{
-    padding:10px;
-    background:black;
-    color:white;
-    min-width:50px;
-    text-align:center;
+.icon {
+    padding: 10px;
+    background: black;
+    color: white;
+    min-width: 50px;
+    text-align: center;
 }
 
 #loginbtn {
-    
-    color:black;
-    background-color:hotpink;
+    color: black;
+    background-color: hotpink;
     padding: 15px 20px;
-    border:thin;
-    cursor:pointer;
-    opacity:0.9;
-    font-weight:bold;
+    border: thin;
+    cursor: pointer;
+    opacity: 0.9;
+    font-weight: bold;
 }
-#loginbtn:hover{
-    opacity:1;
-}
+
+    #loginbtn:hover {
+        opacity: 1;
+    }
