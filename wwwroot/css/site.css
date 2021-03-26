@@ -1,6 +1,9 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@500&display=swap');
+
+
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -68,8 +71,131 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+  background-color:white;
 }
 
+
+#homePageIntroOne {
+    
+    animation-duration: 3s;
+    animation-name: slidein;
+    font-size:80px;
+    text-align:center;
+
+    font-family:'Roboto', sans-serif;
+
+    
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 200%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+#homePageIntroTwo {
+    animation-duration: 10s;
+    animation-name: slidein;
+    text-align: center;
+    font-size: 35px;
+}
+
+@keyframes slideinagain {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+
+#homePageIntroThree {
+    animation-duration: 15s;
+    animation-name: slidein;
+    font-size: 25px;
+    text-align: center;
+}
+
+@keyframes slideinagain {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+#homePageIntroFour {
+    animation-duration: 20s;
+    animation-name: slidein;
+    font-size: 20px;
+    text-align: center;
+}
+
+@keyframes slideinagain {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+#employeePhoto {
+    animation-duration: 25s;
+    animation-name: slidein;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+    position:center;
+    text-align:center;
+}
+
+@keyframes slideinagain {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+#homePageIntroFive {
+    animation-duration:25s;
+    animation-name: slidein;
+    text-align: center;
+}
+
+@keyframes slideinagain {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+=======
     .AdminHeader {
         text-align: center;
         border: 5px solid black;
