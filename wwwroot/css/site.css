@@ -131,7 +131,7 @@ border-bottom: 1px solid #E1E8EE;
     margin-right: 50px;
 }
 
-Let’s add some basic style to product name and description.
+/*Let’s add some basic style to product name and description.*/
 .description {
     padding-top: 10px;
     margin-right: 60px;
