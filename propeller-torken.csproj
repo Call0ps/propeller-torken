@@ -6,12 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="propeller-torken.sln" />
+    <Compile Remove="Views\Partials\**" />
+    <Compile Remove="Views\Products\**" />
+    <Content Remove="Views\Partials\**" />
+    <Content Remove="Views\Products\**" />
+    <EmbeddedResource Remove="Views\Partials\**" />
+    <EmbeddedResource Remove="Views\Products\**" />
+    <None Remove="Views\Partials\**" />
+    <None Remove="Views\Products\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Partials\" />
-    <Folder Include="Views\Products\" />
+    <None Include="propeller-torken.sln" />
   </ItemGroup>
 
 </Project>
