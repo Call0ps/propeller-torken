@@ -123,6 +123,12 @@ body {
     font-family: Arial;
 }
 
+.ProductHeader {
+    text-align: center;
+    font-size: 50px;
+    font-family: Arial;
+}
+
 #homePageIntroThree {
     animation-duration: 15s;
     animation-name: slidein;
