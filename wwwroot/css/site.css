@@ -64,6 +64,7 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
+  background-color: lightgray   
 }
 .footer {
   position: absolute;
@@ -336,6 +337,13 @@ body {
     opacity:0.9;
     font-weight:bold;
 }
+
+#logopic{
+    transition: transform 1s ease-in-out;
+}
+#logopic:hover{
+    cursor:default;
+    transform:rotate(1080deg);
 #loginbtn:hover{
     opacity:1;
 }
