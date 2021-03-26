@@ -195,13 +195,14 @@ body {
         margin-left: 0%;
         width: 100%;
     }
-=======
-    .AdminHeader {
+}
+
+.AdminHeader {
         text-align: center;
         border: 5px solid black;
         font-size: 50px;
         font-family: Arial;
-    }
+}
 
     .ProductHeader {
         text-align: center;
