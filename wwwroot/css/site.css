@@ -118,6 +118,12 @@ body {
     }
 }
 
+.AdminHeader {
+    text-align: center;
+    border: 5px solid black;
+    font-size: 50px;
+    font-family: Arial;
+}
 
 #homePageIntroThree {
     animation-duration: 15s;
@@ -197,13 +203,6 @@ body {
     }
 }
 
-.AdminHeader {
-        text-align: center;
-        border: 5px solid black;
-        font-size: 50px;
-        font-family: Arial;
-}
-
     .ProductHeader {
         text-align: center;
         border: 5px hidden;
@@ -230,7 +229,17 @@ body {
         color: #818181;
         display: block;
     }
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
 
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidebar {
     .sidebar a:hover {
         color: #f1f1f1;
     }
@@ -284,4 +293,49 @@ body {
     float: left;
     width: 220px;
     height: 100%;
+}
+
+#currentorderlist{
+    border-style: solid;
+    border-width: medium;
+}
+
+#pCarlLeker {
+    animation-duration: 3s;
+    animation-name: slidein;
+    font-size:30px;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+.icon{
+    padding:10px;
+    background:black;
+    color:white;
+    min-width:50px;
+    text-align:center;
+}
+
+#loginbtn {
+    
+    color:black;
+    background-color:hotpink;
+    padding: 15px 20px;
+    border:thin;
+    cursor:pointer;
+    opacity:0.9;
+    font-weight:bold;
+}
+#loginbtn:hover{
+    opacity:1;
 }
