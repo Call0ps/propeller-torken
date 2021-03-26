@@ -5,17 +5,20 @@
     ViewData["Title"] = "ProductPage";
     Layout = "~/Views/Shared/_Productlayout.cshtml";
 }
-<div class="row" style="margin:0px auto; display:block; width: 500px;">
-    <div style="float:left">
-        <a class="fade-in" href="https://localhost:44364/Product/PropellerKepsar">
-            <h2>Propeller Kepsar</h2>
-            <img src="~/propkeps_3.jpg" width="200" height="200" />
-        </a>
+
+    <div style="display:inline-block">
+        <div>
+            <a id="propellerkepsbildenlink" href="https://localhost:44364/Product/PropellerKepsar">
+
+                <img src="~/propkeps_3.jpg" id="propellerbilden" width="200" height="200" />
+                <h4>Propellerkepsar</h4>
+            </a>
+        </div>
+        <div>
+            <a id="torktumlarbildenlink" href="https://localhost:44364/Product/TorkTumlare">
+
+                <img src="~/se-dryer-dv80f5e5hgw-dv80f5e5hgw-ee-006-front-white.webp" id="torkbilden" width="200" height="200" />
+                <h4>Torktumlare</h4>
+            </a>
+        </div>
     </div>
-    <div style="float:right">
-        <a class="fade-in" href="https://localhost:44364/Product/TorkTumlare">
-            <h2>TorkTumlare</h2>
-            <img src="~/se-dryer-dv80f5e5hgw-dv80f5e5hgw-ee-006-front-white.webp" width="200" height="200" />
-        </a>
-    </div>
-</div>

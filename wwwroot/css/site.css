@@ -592,3 +592,23 @@ input:focus {
 #loginbtn:hover {
     opacity: 1;
 }
+
+
+#propellerkepsbildenlink:visited{
+    color:black;
+}
+#propellerkepsbildenlink:hover {
+    color: grey;
+}
+#torktumlarbildenlink:visited{
+    color: black;
+}
+#torktumlarbildenlink:hover{
+    color: grey;
+}
+#propellerbilden:hover{
+    opacity: 0.8;
+}
+#torkbilden:hover{
+    opacity: 0.8;
+}
