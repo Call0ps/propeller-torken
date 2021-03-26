@@ -194,57 +194,58 @@
             </div>
         </div>
 
-    </div>
-</div>
-<div class="row">
-    <div class="col" id="Cartlist">
+        <div class="row">
+
+            <div class="customerinfo-cart" id="CustomerInfo">
+                <form method="post">
+                    <div>
+                        <label>Fullständigt namn:</label><br />
+                        <input type="text" name="fullName" id="fullName" required />
+                    </div>
+                    <div>
+                        <label>Gatuadress:</label><br />
+                        <input type="text" name="street" id="street" required />
+                    </div>
+                    <div>
+                        <label>Postnummer:</label><br />
+                        <input type="text" name="zipCode" id="zipCode" required />
+                    </div>
+                    <div>
+                        <label>Postort:</label><br />
+                        <input type="text" name="city" id="city" required />
+                    </div>
+                    <div>
+                        <label>Telefonnummer:</label><br />
+                        <input type="text" name="phoneNumber" id="phoneNumber" required /><br />
+                    </div>
+                    <div>
+                        <label>Email:</label><br />
+                        <input type="text" name="email" id="email" required /><br />
+                    </div>
+                    <div class="popup">
+                        <br />
+                        <button type="submit" onsubmit="myFunction()" name="CustomerInfoSubmit" id="CustomerConfirmButton" value="Bekräfta">Bekräfta</button><br />
+                        <span class="popuptext" id="myPopup">Din order har registrerats!</span>
+                    </div>
+
+
+                </form>
+
+
+            </div>
+        </div>
 
     </div>
 
-    <div class="col" id="CustomerInfo">
-        <form method="post">
-            <div>
-                <label>Fullständigt namn:</label><br />
-                <input type="text" name="fullName" id="fullName" required />
-            </div>
-            <div>
-                <label>Gatuadress:</label><br />
-                <input type="text" name="street" id="street" required />
-            </div>
-            <div>
-                <label>Postnummer:</label><br />
-                <input type="text" name="zipCode" id="zipCode" required />
-            </div>
-            <div>
-                <label>Postort:</label><br />
-                <input type="text" name="city" id="city" required />
-            </div>
-            <div>
-                <label>Telefonnummer:</label><br />
-                <input type="text" name="phoneNumber" id="phoneNumber" required /><br />
-            </div>
-            <div>
-                <label>Email:</label><br />
-                <input type="text" name="email" id="email" required /><br />
-            </div>
-            <div class="popup" >
-                <br />
-                <button type="submit" onsubmit="myFunction()" name="CustomerInfoSubmit" id="CustomerConfirmButton" value="Bekräfta">Bekräfta</button><br />
-                <span class="popuptext" id="myPopup">Din order har registrerats!</span>
-            </div>
 
 
-        </form>
-</div>
 <script>
     function myFunction() {
         var popup = document.getElementById("myPopup");
         popup.classList.toggle("show");
     }
 
-    
-
-    var button = document.getElementById("CustomerConfirmButton");
+      var button = document.getElementById("CustomerConfirmButton");
     
 
     // Disable the button on initial page load
