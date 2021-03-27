@@ -612,3 +612,20 @@ input:focus {
 #torkbilden:hover{
     opacity: 0.8;
 }
+
+#productAlternative {
+    
+}
+
+.productItem {
+
+    position:center;
+    display:block;
+    margin: 0 auto;
+    float:left;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    text-align: center;
+    padding-left:120px;
+}
+
