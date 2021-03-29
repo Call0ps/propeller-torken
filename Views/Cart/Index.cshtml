@@ -194,49 +194,54 @@
             </div>
         </div>
 
-        <div class="row">
-
-            <div class="customerinfo-cart" id="CustomerInfo">
-                <form method="post">
-                    <div>
-                        <label>Fullständigt namn:</label><br />
-                        <input type="text" name="fullName" id="fullName" required />
-                    </div>
-                    <div>
-                        <label>Gatuadress:</label><br />
-                        <input type="text" name="street" id="street" required />
-                    </div>
-                    <div>
-                        <label>Postnummer:</label><br />
-                        <input type="text" name="zipCode" id="zipCode" required />
-                    </div>
-                    <div>
-                        <label>Postort:</label><br />
-                        <input type="text" name="city" id="city" required />
-                    </div>
-                    <div>
-                        <label>Telefonnummer:</label><br />
-                        <input type="text" name="phoneNumber" id="phoneNumber" required /><br />
-                    </div>
-                    <div>
-                        <label>Email:</label><br />
-                        <input type="text" name="email" id="email" required /><br />
-                    </div>
-                    <div class="popup">
-                        <br />
-                        <button type="submit" onsubmit="myFunction()" name="CustomerInfoSubmit" id="CustomerConfirmButton" value="Bekräfta">Bekräfta</button><br />
-                        <span class="popuptext" id="myPopup">Din order har registrerats!</span>
-                    </div>
 
 
-                </form>
+        <div class="customerinfo-cart" id="CustomerInfo">
+            <form method="post">
 
+                <div class="title">
+                    Kunduppgifter
+                </div>
 
-            </div>
+                <div align="center">
+                    <label class="customerinfo-cart-label">Förnamn:</label><br />
+                    <input type="text" name="firstName" id="firstName" required placeholder="ditt förnamn..."/>
+                </div>
+                <div align="center">
+                    <label class="customerinfo-cart-label">Efternamn:</label><br />
+                    <input type="text" name="lastName" id="lastName" required placeholder="ditt efternamn..."/>
+                </div>
+                <div align="center">
+                    <label class="customerinfo-cart-label">Gatuadress:</label><br />
+                    <input type="text" name="street" id="street" required placeholder="din postadress..."/>
+                </div>
+                <div align="center">
+                    <label class="customerinfo-cart-label">Postnummer:</label><br />
+                    <input type="text" name="zipCode" id="zipCode" required placeholder="ditt postnummer..."/>
+                </div>
+                <div align="center">
+                    <label class="customerinfo-cart-label">Postort:</label><br />
+                    <input type="text" name="city" id="city" required placeholder="din postort ..."/>
+                </div>
+                <div align="center">
+                    <label class="customerinfo-cart-label">Telefonnummer:</label><br />
+                    <input type="text" name="phoneNumber" id="phoneNumber" required placeholder="ditt telefonnummer..."/>
+                </div>
+                <div align="center">
+                    <label class="customerinfo-cart-label">Email:</label><br />
+                    <input type="text" name="email" id="email" required placeholder="din email..."/>
+                </div>
+                <div class="popup">
+                    <br />
+                    <button type="submit" onsubmit="myFunction()" name="CustomerInfoSubmit" id="CustomerConfirmButton" value="Bekräfta">Bekräfta</button><br />
+                    <span class="popuptext" id="myPopup">Din order har registrerats!</span>
+                </div>
+
+            </form>
         </div>
-
     </div>
 </div>
+
 
 
 <script>
@@ -245,28 +250,41 @@
         popup.classList.toggle("show");
     }
 
-      var button = document.getElementById("CustomerConfirmButton");
-    
+    var button = document.getElementById("CustomerConfirmButton");
+
 
     // Disable the button on initial page load
     button.disabled = true;
 
-    var boolFullName = false;
+    var boolFirstName = false;
+    var boolLastName = false;
     var boolStreet = false;
     var boolZipCode = false;
     var boolCity = false;
     var boolPhoneNumber = false;
     var boolEmail = false;
 
-    const fullName = document.getElementById("fullName");
+    const firstName = document.getElementById("firstName");
 
-    fullName.addEventListener("change", function () {
-        if (fullName.validity.typeMismatch) {
-            fullName.setCustomValidity("Fyll i för- och efternamn!");
+    firstName.addEventListener("change", function () {
+        if (firstName.validity.typeMismatch) {
+            firstName.setCustomValidity("Fyll i för- och efternamn!");
         }
         else {
-            fullName.setCustomValidity("");
-            boolFullName = true;
+            firstName.setCustomValidity("");
+            boolFirstName = true;
+        }
+    });
+
+    const lastName = document.getElementById("lastName");
+
+    lastName.addEventListener("change", function () {
+        if (lastName.validity.typeMismatch) {
+            lastName.setCustomValidity("Fyll i för- och efternamn!");
+        }
+        else {
+            lastName.setCustomValidity("");
+            boolLastName = true;
         }
     });
 
@@ -320,15 +338,14 @@
 
     const email = document.getElementById("email");
 
-    email.addEventListener("change", function ()
-    {
+    email.addEventListener("change", function () {
         if (email.validity.typeMismatch) {
             email.setCustomValidity("Fyll i din email-adress!");
         }
         else {
             email.setCustomValidity("");
             boolEmail = true;
-            if (boolFullName && boolStreet && boolZipCode && boolCity && boolPhoneNumber && boolEmail) {
+            if (boolFirstName && boolLastName && boolStreet && boolZipCode && boolCity && boolPhoneNumber && boolEmail) {
                 button.disabled = false;
 
             }
