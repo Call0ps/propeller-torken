@@ -633,4 +633,32 @@ input:focus {
     text-align: center;
     padding-left:120px;
 }
+.contactBox {
+    width: 370px;
+    height: 460px;
+    margin: 80px auto;
+    background: #FFFFFF;
+    box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.titleTitle {
+    height: 60px;
+    border-bottom: 1px solid #E1E8EE;
+    padding: 20px 30px;
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+}
+.contactBox-label {
+    font-size: 24px;
+    font-weight:bolder;
+    color: black;
+}
+.contactBoxPic {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
 
