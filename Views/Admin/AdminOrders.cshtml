@@ -26,7 +26,7 @@
 
             </li>
             <button type="button" id="AddToSentList">Skicka </button>
-            <button asp-controller="Admin" asp-action="Delete" type="button" id="Remove">Ta bort</button>
+            <button type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = orders.Id, os = Model})'">Ta bort</button>
             @*@Html.ActionLink("Delete", "DeleteFromList", new { ListNumber = orders.Id })*@
         </ul>
             }
