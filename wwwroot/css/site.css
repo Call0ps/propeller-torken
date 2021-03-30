@@ -636,7 +636,7 @@ input:focus {
 .contactBox {
     width: 370px;
     height: 460px;
-    margin: 80px auto;
+    margin: 20px auto;
     background: #FFFFFF;
     box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
     border-radius: 10px;
