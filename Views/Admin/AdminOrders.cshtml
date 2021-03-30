@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "AdministratorOrders";
     Layout = "~/Views/Shared/_Adminlayout.cshtml";
+
 }
 
 
@@ -15,12 +16,43 @@
         {
             foreach(var orders in Model.CurrentOrderList)
             {
-               
-             <li>@orders.OurCustomer.FirstName @orders.OurProduct @orders.Date </li>
+        <ul>
+            <li>
+                @orders.OurCustomer.FirstName
+                @foreach (var items in orders.OurProduct)
+                {
+                    @items.Name @items.Price
+                } @orders.Date
+
+            </li>
+            <button type="button" id="AddToSentList">Skicka </button>
+            <button asp-controller="Admin" asp-action="Delete" type="button" id="Remove">Ta bort</button>
+            @*@Html.ActionLink("Delete", "DeleteFromList", new { ListNumber = orders.Id })*@
+        </ul>
             }
         }
-
-
     </div>
 </div>
+
+@*<td>
+<form method="post" action="~/Views/Admin/AdminSent.cshtml">
+    @if (Model != null)
+    {
+        foreach (var orders in Model.CurrentOrderList)
+        {
+            <ul>
+                <li>
+                    @orders.OurCustomer.FirstName
+                    @foreach (var items in orders.OurProduct)
+                    {
+                        @items.Name @items.Price
+                    } @orders.Date
+                    <input type="checkbox"/>
+                </li>
+            </ul>
+        }
+
+    }
+</form>
+</td>*@
 

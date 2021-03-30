@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using propeller_torken.Models;
 using propeller_torken.Services;
 
+
 namespace propeller_torken.Controllers
 {
     public class AdminController : Controller
@@ -28,7 +29,7 @@ namespace propeller_torken.Controllers
         {
             
 
-            return View(ourOrderService.CurrentOrderList);
+            return View(ourOrderService);
         }
 
         public IActionResult AdminSent()
@@ -41,6 +42,17 @@ namespace propeller_torken.Controllers
         {
             return View();
         }
+
+        public IActionResult Delete(int? id)
+        {
+            ourOrderService.CurrentOrderList.Remove(ourOrderService.CurrentOrderList.FirstOrDefault(t => t.Id == id));
+            ourOrderService.CurrentOrderList.Remove(ourOrderService.CurrentOrderList.Where(z => z.Id == id));
+            
+
+            return View();
+
+        }
+        
     }
 
 
