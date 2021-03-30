@@ -17,9 +17,8 @@ namespace propeller_torken.Controllers
         {
             OrderService = orderService;
         }
-        //Program myProgram = new Program();
-        //CombinedViewModelsService combined = new CombinedViewModelsService();
-        
+
+
 
         public IActionResult Index()
         {
@@ -40,7 +39,7 @@ namespace propeller_torken.Controllers
 
         public IActionResult AdminSent()
         {
-            return View();
+            return View(OrderService);
         }
 
 
@@ -51,14 +50,30 @@ namespace propeller_torken.Controllers
 
         public IActionResult Delete(int id, OrderService os)
         {
+            os.CurrentOrderList = OrderService.CurrentOrderList;
             os.CurrentOrderList.Remove(os.CurrentOrderList.FirstOrDefault(t => t.Id == id));
             OrderService.CurrentOrderList = os.CurrentOrderList;
-            //ourOrderService.CurrentOrderList.Remove((Orders)ourOrderService.CurrentOrderList.Where(z => z.Id.Equals(id)));
-            //ourOrderService.CurrentOrderList = ourOrderService.CurrentOrderList.Where(c => c.Id != id).ToList();
+            
 
             return View("AdminOrders", os);
 
             
+
+        }
+
+        public IActionResult Send(int id, OrderService os)
+        {
+            os.CurrentOrderList = OrderService.CurrentOrderList;
+            os.SentOrderList = OrderService.SentOrderList;
+            os.SentOrderList.Add(os.CurrentOrderList.FirstOrDefault(c => c.Id == id));
+            os.CurrentOrderList.Remove(os.CurrentOrderList.FirstOrDefault(t => t.Id == id));
+            OrderService.CurrentOrderList = os.CurrentOrderList;
+            OrderService.SentOrderList = os.SentOrderList;
+
+
+            return View("AdminOrders", os);
+
+
 
         }
 
@@ -67,7 +82,13 @@ namespace propeller_torken.Controllers
         {
             return View(os);
         }
-        
+
+        [HttpPost]
+        public IActionResult AdminSent(OrderService os)
+        {
+            return View(os);
+        }
+
     }
 
 

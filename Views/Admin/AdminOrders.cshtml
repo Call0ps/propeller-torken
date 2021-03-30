@@ -25,7 +25,7 @@
                 } @orders.Date
 
             </li>
-            <button type="button" id="AddToSentList">Skicka </button>
+            <button type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = orders.Id, os = Model})'">Skicka </button>
             <button type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = orders.Id, os = Model})'">Ta bort</button>
             @*@Html.ActionLink("Delete", "DeleteFromList", new { ListNumber = orders.Id })*@
         </ul>
