@@ -22,7 +22,7 @@
 
                 @foreach (var items in orders.OurProduct)
                 {
-                <span>@items.Name  @items.Price</span>
+                <span>@items.Name @items.Price</span>
                     
                 } @orders.Date
                 <button type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = orders.Id, os = Model})'">Skicka </button>

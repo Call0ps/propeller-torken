@@ -77,17 +77,17 @@ namespace propeller_torken.Controllers
 
         }
 
-        [HttpPost]
-        public IActionResult AdminOrders(OrderService os)
-        {
-            return View(os);
-        }
+        //[HttpPost]
+        //public IActionResult AdminOrders(OrderService os)
+        //{
+        //    return View(os);
+        //}
 
-        [HttpPost]
-        public IActionResult AdminSent(OrderService os)
-        {
-            return View(os);
-        }
+        //[HttpPost]
+        //public IActionResult AdminSent(OrderService os)
+        //{
+        //    return View(os);
+        //}
 
     }
 
