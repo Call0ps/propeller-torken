@@ -12,24 +12,26 @@
     <h2>Nuvarande ordrar</h2>
     <div id="currentorderlist">
 
-        @if(Model != null)
+        @if (Model != null)
         {
-            foreach(var orders in Model.CurrentOrderList)
-            {
         <ul>
+            @foreach (var orders in Model.CurrentOrderList)
+            {
             <li>
                 @orders.OurCustomer.FirstName
+
                 @foreach (var items in orders.OurProduct)
                 {
-                    @items.Name @items.Price
+                <span>@items.Name  @items.Price</span>
+                    
                 } @orders.Date
+                <button type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = orders.Id, os = Model})'">Skicka </button>
+                <button type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = orders.Id, os = Model})'">Ta bort</button>
 
             </li>
-            <button type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = orders.Id, os = Model})'">Skicka </button>
-            <button type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = orders.Id, os = Model})'">Ta bort</button>
-            @*@Html.ActionLink("Delete", "DeleteFromList", new { ListNumber = orders.Id })*@
-        </ul>
-            }
+                @*@Html.ActionLink("Delete", "DeleteFromList", new { ListNumber = orders.Id })*@
+                }
+            </ul>
         }
     </div>
 </div>
