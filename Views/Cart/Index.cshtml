@@ -4,7 +4,6 @@
 @{
     ViewData["Title"] = "CartPage";
     Layout = "~/Views/Shared/_Layout.cshtml";
-
 }
 <div class="container">
     <div class="row">
@@ -193,10 +192,8 @@
                 </div>
             </div>
         </div>
-
-
-
-        <div class="customerinfo-cart" id="CustomerInfo">
+        <div class="row">
+       <div class="customerinfo-cart" id="CustomerInfo">
             <form method="post">
 
                 <div class="title">
@@ -243,16 +240,12 @@
     </div>
 </div>
 
-
-
 <script>
     function myFunction() {
         var popup = document.getElementById("myPopup");
         popup.classList.toggle("show");
     }
-
     var button = document.getElementById("CustomerConfirmButton");
-
 
     // Disable the button on initial page load
     button.disabled = true;
@@ -264,7 +257,6 @@
     var boolCity = false;
     var boolPhoneNumber = false;
     var boolEmail = false;
-
     const firstName = document.getElementById("firstName");
 
     firstName.addEventListener("change", function () {
