@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using PropellerTorkenMain.Models;
+using PropellerTorkenMain.Models.Database;
 
 namespace PropellerTorkenMain.Services
 {
     public class OrderService
     {
 
-
+        PropellerDataContext pdc = new PropellerDataContext();
         public List<Orders> CurrentOrderList { get; set; }
         public List<Orders> SentOrderList { get; set; }
 
