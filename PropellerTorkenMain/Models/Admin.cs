@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace propeller_torken.Models
+namespace PropellerTorkenMain.Models
 {
     public class Admin
     {

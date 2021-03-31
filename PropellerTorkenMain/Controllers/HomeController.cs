@@ -5,9 +5,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using propeller_torken.Models;
+using PropellerTorkenMain.Models;
 
-namespace propeller_torken.Controllers
+namespace PropellerTorkenMain.Controllers
 {
     public class HomeController : Controller
     {

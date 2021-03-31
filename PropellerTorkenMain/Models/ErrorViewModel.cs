@@ -1,6 +1,6 @@
 using System;
 
-namespace propeller_torken.Models
+namespace PropellerTorkenMain.Models
 {
     public class ErrorViewModel
     {

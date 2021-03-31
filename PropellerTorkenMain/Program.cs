@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using propeller_torken.Services;
+using PropellerTorkenMain.Services;
 
-namespace propeller_torken
+namespace PropellerTorkenMain
 {
     public class Program
     {

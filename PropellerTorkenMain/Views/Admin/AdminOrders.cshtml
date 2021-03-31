@@ -1,12 +1,9 @@
-﻿@model propeller_torken.Services.OrderService
+﻿@model PropellerTorkenMain.Services.OrderService
 @{
     ViewData["Title"] = "AdministratorOrders";
     Layout = "~/Views/Shared/_Adminlayout.cshtml";
 
 }
-
-
-
 <h1>HÄR SKA ORDRAR VISAS</h1>
 <div id="currentOrders">
     <h2>Nuvarande ordrar</h2>
@@ -14,22 +11,21 @@
 
         @if (Model != null)
         {
-        <ul>
-            @foreach (var orders in Model.CurrentOrderList)
-            {
-            <li>
-                @orders.OurCustomer.FirstName
-
-                @foreach (var items in orders.OurProduct)
+            <ul>
+                @foreach (var orders in Model.CurrentOrderList)
                 {
-                <span>@items.Name @items.Price</span>
-                    
-                } @orders.Date
-                <button type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = orders.Id, os = Model})'">Skicka </button>
-                <button type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = orders.Id, os = Model})'">Ta bort</button>
+                    <li>
+                        @orders.OurCustomer.FirstName
 
-            </li>
-                @*@Html.ActionLink("Delete", "DeleteFromList", new { ListNumber = orders.Id })*@
+                        @foreach (var items in orders.OurProduct)
+                        {
+                            <span>@items.Name @items.Price</span>
+
+                        } @orders.Date
+                        <button type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = orders.Id, os = Model})'">Skicka </button>
+                        <button type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = orders.Id, os = Model})'">Ta bort</button>
+                    </li>
+                    @*@Html.ActionLink("Delete", "DeleteFromList", new { ListNumber = orders.Id })*@
                 }
             </ul>
         }
@@ -37,24 +33,23 @@
 </div>
 
 @*<td>
-<form method="post" action="~/Views/Admin/AdminSent.cshtml">
-    @if (Model != null)
-    {
-        foreach (var orders in Model.CurrentOrderList)
+    <form method="post" action="~/Views/Admin/AdminSent.cshtml">
+        @if (Model != null)
         {
-            <ul>
-                <li>
-                    @orders.OurCustomer.FirstName
-                    @foreach (var items in orders.OurProduct)
-                    {
-                        @items.Name @items.Price
-                    } @orders.Date
-                    <input type="checkbox"/>
-                </li>
-            </ul>
+            foreach (var orders in Model.CurrentOrderList)
+            {
+                <ul>
+                    <li>
+                        @orders.OurCustomer.FirstName
+                        @foreach (var items in orders.OurProduct)
+                        {
+                            @items.Name @items.Price
+                        } @orders.Date
+                        <input type="checkbox" />
+                    </li>
+                </ul>
+            }
+
         }
-
-    }
-</form>
-</td>*@
-
+    </form>
+    </td>*@

@@ -3,9 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using propeller_torken.Models;
 
-namespace propeller_torken.Data
+namespace PropellerTorkenMain.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -13,6 +12,5 @@ namespace propeller_torken.Data
             : base(options)
         {
         }
-        public DbSet<Customer> Customer { get; set; }
     }
 }

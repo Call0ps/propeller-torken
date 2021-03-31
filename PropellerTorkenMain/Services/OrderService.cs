@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using propeller_torken.Models;
+using PropellerTorkenMain.Models;
 
-namespace propeller_torken.Services
+namespace PropellerTorkenMain.Services
 {
     public class OrderService
     {

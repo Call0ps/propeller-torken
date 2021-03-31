@@ -1,0 +1,31 @@
+﻿@model propeller_torken.Services.OrderService
+@{
+    ViewData["Title"] = "AdministratorSentOrders";
+    Layout = "~/Views/Shared/_Adminlayout.cshtml";
+}
+
+<h1>HÄR SKA SKICKADE ORDRAR VISAS</h1>
+<div id="sentOrders">
+    <h2>Skickade ordrar</h2>
+    <div id="sentorderlist">
+
+        @if (Model != null)
+        {
+        <ul>
+            @foreach (var orders in Model.SentOrderList)
+            {
+            <li>
+
+                @orders.OurCustomer.FirstName
+                @foreach (var items in orders.OurProduct)
+                {
+                    <span>@items.Name @items.Price</span>
+                }
+            </li>
+
+
+            }
+        </ul>
+        }
+    </div>
+</div>

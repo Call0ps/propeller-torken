@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using propeller_torken.Models;
-using propeller_torken.Services;
+using PropellerTorkenMain.Models;
+using PropellerTorkenMain.Services;
 
-namespace propeller_torken.Services
+namespace PropellerTorkenMain.Services
 {
     public class CombinedViewModelsService
     {
