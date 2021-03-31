@@ -123,6 +123,12 @@ body {
     font-family: Arial;
 }
 
+.ProductHeader {
+    text-align: center;
+    font-size: 50px;
+    font-family: Arial;
+}
+
 #homePageIntroThree {
     animation-duration: 15s;
     animation-name: slidein;
@@ -250,8 +256,13 @@ body {
 /* Shopping bag
 ----------------------------------------------------*/
 .shopping-cart {
+<<<<<<< HEAD
     width: 550px;
     height: auto;
+=======
+    width: 700px;
+    height: 850px;
+>>>>>>> main
     margin: 80px auto;
     background: #FFFFFF;
     box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
@@ -262,7 +273,11 @@ body {
 
 .customerinfo-cart {
     width: 200px;
+<<<<<<< HEAD
     height: 450px;
+=======
+    height: 580px;
+>>>>>>> main
     margin: 80px auto;
     background: #FFFFFF;
     box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
@@ -271,6 +286,13 @@ body {
     flex-direction: column;
 }
 
+<<<<<<< HEAD
+=======
+.customerinfo-cart-label{
+    font-size: 14px;
+}
+
+>>>>>>> main
 .title {
     height: 60px;
     border-bottom: 1px solid #E1E8EE;
@@ -286,10 +308,17 @@ body {
     display: flex;
 }
 
+<<<<<<< HEAD
 .item:nth-child(3) {
 border-top: 1px solid #E1E8EE;
 border-bottom: 1px solid #E1E8EE;
 }
+=======
+    .item:nth-child(3) {
+        border-top: 1px solid #E1E8EE;
+        border-bottom: 1px solid #E1E8EE;
+    }
+>>>>>>> main
 
 .is-active {
     animation-name: animate;
@@ -317,13 +346,18 @@ border-bottom: 1px solid #E1E8EE;
     margin-right: 50px;
 }
 
+<<<<<<< HEAD
 Let’s add some basic style to product name and description.
+=======
+/*Let’s add some basic style to product name and description.*/
+>>>>>>> main
 .description {
     padding-top: 10px;
     margin-right: 60px;
     width: 115px;
 }
 
+<<<<<<< HEAD
 .description span {
     display: block;
     font-size: 14px;
@@ -340,6 +374,24 @@ Let’s add some basic style to product name and description.
         margin-top: 8px;
         color: #86939E;
     }
+=======
+    .description span {
+        display: block;
+        font-size: 14px;
+        color: #43484D;
+        font-weight: 400;
+    }
+
+        .description span:first-child {
+            margin-bottom: 5px;
+        }
+
+        .description span:last-child {
+            font-weight: 300;
+            margin-top: 8px;
+            color: #86939E;
+        }
+>>>>>>> main
 
 .quantity {
     padding-top: 20px;
@@ -422,7 +474,11 @@ input:focus {
 #CustomerConfirmButton {
     background-color: aquamarine
 }
+<<<<<<< HEAD
  /*Pop-up button
+=======
+/*Pop-up button
+>>>>>>> main
 ---------------------------------------------------/
 / Popup container /*/
 .popup {
@@ -431,7 +487,11 @@ input:focus {
     cursor: pointer;
 }
 
+<<<<<<< HEAD
   /*  / The actual popup (appears on top) /*/
+=======
+    /*  / The actual popup (appears on top) /*/
+>>>>>>> main
     .popup .popuptext {
         visibility: hidden;
         width: 160px;
@@ -447,7 +507,11 @@ input:focus {
         margin-left: -80px;
     }
 
+<<<<<<< HEAD
        /* / Popup arrow /*/
+=======
+        /* / Popup arrow /*/
+>>>>>>> main
         .popup .popuptext::after {
             content: "";
             position: absolute;
@@ -459,15 +523,24 @@ input:focus {
             border-color: #555 transparent transparent transparent;
         }
 
+<<<<<<< HEAD
    /* / Toggle this class when clicking on the popup container (hide and show the popup) /*/
+=======
+    /* / Toggle this class when clicking on the popup container (hide and show the popup) /*/
+>>>>>>> main
     .popup .show {
         visibility: visible;
         -webkit-animation: fadeIn 1s;
         animation: fadeIn 1s
     }
 
+<<<<<<< HEAD
 /*/ Add animation (fade in the popup) 
 */@-webkit-keyframes fadeIn {
+=======
+/*/ Add animation (fade in the popup)
+*/ @-webkit-keyframes fadeIn {
+>>>>>>> main
     from {
         opacity: 0;
     }
@@ -486,6 +559,10 @@ input:focus {
         opacity: 1;
     }
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 .showup {
     width: 100px;
     height: 100px;
@@ -495,7 +572,11 @@ input:focus {
     cursor: pointer;
     padding-bottom: 10px;
 }
+<<<<<<< HEAD
 =======
+=======
+
+>>>>>>> main
 .columnOrders {
     display: flex;
     justify-content: center;
@@ -566,11 +647,12 @@ input:focus {
 #loginbtn {
     color: black;
     background-color: hotpink;
-    padding: 15px 20px;
+    /*padding: 15px 20px;*/
     border: thin;
     cursor: pointer;
     opacity: 0.9;
     font-weight: bold;
+    width:auto;
 }
 
 #logopic {
@@ -585,3 +667,68 @@ input:focus {
 #loginbtn:hover {
     opacity: 1;
 }
+
+
+#propellerkepsbildenlink:visited{
+    color:black;
+}
+#propellerkepsbildenlink:hover {
+    color: grey;
+}
+#torktumlarbildenlink:visited{
+    color: black;
+}
+#torktumlarbildenlink:hover{
+    color: grey;
+}
+#propellerbilden:hover{
+    opacity: 0.8;
+}
+#torkbilden:hover{
+    opacity: 0.8;
+}
+
+#productAlternative {
+    
+}
+
+.productItem {
+
+    position:center;
+    display:block;
+    margin: 0 auto;
+    float:left;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    text-align: center;
+    padding-left:120px;
+}
+.contactBox {
+    width: 370px;
+    height: 460px;
+    margin: 20px auto;
+    background: #FFFFFF;
+    box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    
+}
+.titleTitle {
+    height: 60px;
+    border-bottom: 1px solid #E1E8EE;
+    padding: 20px 30px;
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+}
+.contactBox-label {
+    font-size: 24px;
+    font-weight:bolder;
+    color: black;
+}
+.contactBoxPic {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
