@@ -546,6 +546,13 @@ input:focus {
 #currentorderlist {
     border-style: solid;
     border-width: medium;
+    background-color:white;
+}
+
+#sentorderlist {
+    border-style: solid;
+    border-width: medium;
+    background-color: white;
 }
 
 #pCarlLeker {
