@@ -267,7 +267,7 @@ body {
 }
 
 .customerinfo-cart {
-    width: 200px;
+    width: 250px;
     height: 580px;
     margin: 80px auto;
     background: #FFFFFF;
@@ -669,9 +669,9 @@ input:focus {
     padding-bottom: 10px;
 }
 .productkepsbox {
-    width: 250px;
+    width: 200px;
     height: 300px;
-    margin: 20px auto;
+    margin: 10px auto;
     background: #FFFFFF;
     box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
     border-radius: 10px;
@@ -679,9 +679,9 @@ input:focus {
     flex-direction: column;*/
 }
 .producttorkbox {
-    width: 250px;
+    width: 200px;
     height: 300px;
-    margin: 20px auto;
+    margin: 10px auto;
     background: #FFFFFF;
     box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
     border-radius: 10px;
@@ -698,13 +698,44 @@ input:focus {
 }
 .productkepsboxEtt {
     width: 350px;
-    height: 400px;
+    height: 450px;
     margin: 20px auto;
     background: #FFFFFF;
     box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
 }
 .propellerFirstPic {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+.productkepsboxTwo {
+    width: 350px;
+    height: 450px;
+    margin: 20px auto;
+    background: #FFFFFF;
+    box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.propellerSecPic {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+.productkepsboxThree {
+    width: 350px;
+    height: 450px;
+    margin: 20px auto;
+    background: #FFFFFF;
+    box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.propellerThirdPic {
     padding-top: 15px;
     padding-bottom: 10px;
 }
