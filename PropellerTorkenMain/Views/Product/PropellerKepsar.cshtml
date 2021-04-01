@@ -8,22 +8,49 @@
 <section class="container">
     <div class="row">
         <article class="col-sm-4">
-            <img class="img-thumbnail img-fluid" src="~/images/propkeps_3.jpg" height="200" width="200" />
-            <input type="button" class="btn-danger btn-lg" value="Köp" />
-            <h5 class="h5 text-nowrap">Vår ena propellerkeps</h5>
-            <p class="text-wrap">Den är fantastisk!</p>
+            <div class="productkepsbox" id="kepsbox">
+                <form method="post">
+
+                    <div class="propellerFirstPic" align="center">
+                        <img class="img-thumbnail img-fluid" id="propellerbilden" src="~/images/propkeps_3.jpg" height="200" width="200" />
+                    </div>
+
+                    <h5 style="text-align:center">Vår ena propellerkeps</h5>
+                    <p class="text-wrap" style="text-align:center">Den är fantastisk!</p>
+                    <div class="d-flex justify-content-center ">
+                        <input type="button" class="btn-danger btn-lg" id="redbutton" value="Add to cart" />
+                        </div>
+                </form>
+            </div>
+        </article>
+
+        <article class="col-sm-4" >
+            <div class="productkepsbox" id="kepsbox">
+                <form method="post">
+                    <div class="propellerSecPic" align="center">
+                        <img class="img-thumbnail img-fluid" id="propellerbilden" src="~/images/Modellfoto_Calle.jpg" height="200" width="200" />
+                    </div>
+                    <h5 style="text-align:center">Här är den andra</h5>
+                    <p class="text-wrap" style="text-align:center">Visst är den fin?</p>
+                    <div class="d-flex justify-content-center ">
+                        <input type="button" class="btn-danger btn-lg" id="redbutton" value="Add to cart" />
+                        </div>
+                </form>
+                </div>
         </article>
         <article class="col-sm-4">
-            <img class="img-thumbnail img-fluid" src="~/images/Modellfoto_Calle.jpg" height="200" width="200" />
-            <input type="button" class="btn-danger btn-lg" value="Köp" />
-            <h5 class="h5 text-nowrap">Här är den andra</h5>
-            <p class="text-wrap">Visst är den fin?</p>
+            <div class="productkepsbox" id="kepsbox">
+                <form method="post">
+                    <div class="propellerThirdPic" align="center">
+                        <img class="img-thumbnail img-fluid" id="propellerbilden" src="~/images/Modellfoto_Elin.jpg" height="200" width="200" />
+                    </div>
+                    <h5 style="text-align:center">Och den första igen</h5>
+                    <p class="text-wrap" style="text-align:center">Jag sover med min varje natt.</p>
+                    <div class="d-flex justify-content-center ">
+                    <input type="button" class="btn-danger btn-lg" id="redbutton" value="Add to cart" />
+                    </div>
+                </form>
+                </div>
         </article>
-        <article class="col-sm-4">
-            <img class="img-thumbnail img-fluid" src="~/images/Modellfoto_Elin.jpg" height="200" width="200" />
-            <input type="button" class="btn-danger btn-lg" value="Köp" />
-            <h5 class="h5 text-nowrap">Och den första igen</h5>
-            <p class="text-wrap">Jag sover med min varje natt.</p>
-        </article>
-    </div>
+    </div>  
 </section>

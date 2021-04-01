@@ -212,6 +212,7 @@ body {
     border: 5px hidden;
     font-size: 50px;
     font-family: Arial;
+    padding-bottom: 20px;
 }
 
 .sidebar {
@@ -267,7 +268,7 @@ body {
 }
 
 .customerinfo-cart {
-    width: 200px;
+    width: 250px;
     height: 580px;
     margin: 80px auto;
     background: #FFFFFF;
@@ -432,14 +433,15 @@ input:focus {
 #CustomerConfirmButton {
     background-color: aquamarine
 }
-/*Pop-up button
+
+    /*Pop-up button
 ---------------------------------------------------/
 / Popup container /*/
-.popup {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-}
+    .popup {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+    }
 
     /*  / The actual popup (appears on top) /*/
     .popup .popuptext {
@@ -668,32 +670,73 @@ input:focus {
     padding-top: 15px;
     padding-bottom: 10px;
 }
-.productkepsbox {
-    width: 250px;
+.productkepsboxfront {
+    width: 200px;
     height: 300px;
-    margin: 20px auto;
+    margin: 10px auto;
     background: #FFFFFF;
     box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
+    /*display: flex;
+    flex-direction: column;*/
 }
 .producttorkbox {
-    width: 250px;
+    width: 200px;
     height: 300px;
+    margin: 10px auto;
+    background: #FFFFFF;
+    box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
+    border-radius: 10px;
+    /*display: flex;
+    flex-direction: column;*/
+}
+.propellerBoxPic {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.torkBoxPic {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.productkepsbox {
+    width: 350px;
+    height: 450px;
     margin: 20px auto;
     background: #FFFFFF;
     box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+  
 }
-.propellerBoxPic {
+.propellerFirstPic {
     padding-top: 15px;
     padding-bottom: 10px;
 }
-.torkBoxPic {
+
+.propellerSecPic {
     padding-top: 15px;
     padding-bottom: 10px;
 }
+
+
+.propellerThirdPic {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+.torkbox {
+    width: 350px;
+    height: 450px;
+    margin: 10px auto;
+    background: #FFFFFF;
+    box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.torkPic {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
 
