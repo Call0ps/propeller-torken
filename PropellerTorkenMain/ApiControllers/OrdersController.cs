@@ -6,14 +6,16 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PropellerTorkenMain.Models.Database;
+using PropellerTorkenMain.Services;
 
-namespace PropellerTorkenMain.Areas
+namespace PropellerTorkenMain.ApiControllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class OrdersController : ControllerBase
     {
         private readonly PropellerDataContext _context;
+        OrderService orderService = new OrderService();
 
         public OrdersController(PropellerDataContext context)
         {
@@ -117,5 +119,12 @@ namespace PropellerTorkenMain.Areas
         {
             return _context.Orders.Any(e => e.Id == id);
         }
+
+
+        //[HttpGet]
+        //public IEnumerable<Product> GetProducts()
+        //{
+        //    return orderService.GetAllProducts().ToList();
+        //}
     }
 }

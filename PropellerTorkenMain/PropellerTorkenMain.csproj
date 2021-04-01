@@ -122,8 +122,4 @@
     <UpToDateCheckInput Remove="Views\Home\Contact.cshtml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ApiControllers\" />
-  </ItemGroup>
-
 </Project>

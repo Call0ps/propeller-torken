@@ -65,20 +65,24 @@ namespace PropellerTorkenMain.Models.Database
 
             modelBuilder.Entity<Order>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Date).HasColumnType("datetime");
 
-                entity.Property(e => e.OrderSum).ValueGeneratedOnAdd();
+                entity.HasOne(d => d.OurCustomerNavigation)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.OurCustomer)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Orders_Customer");
+
+                entity.HasOne(d => d.OurProductNavigation)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.OurProduct)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Orders_Products");
             });
 
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
                 entity.Property(e => e.Name).IsRequired();
-
-                entity.Property(e => e.Qty).ValueGeneratedOnAdd();
             });
 
             OnModelCreatingPartial(modelBuilder);
