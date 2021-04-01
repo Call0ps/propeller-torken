@@ -35,5 +35,14 @@ namespace PropellerTorkenMain.Services
             }
         }
 
+        public string DeleteProduct(int id)
+        {
+            var productToDelete = pdc.Products.Where(p => p.Id == id).Single<Product>();
+            pdc.Products.Remove(productToDelete);
+            pdc.SaveChanges();
+            return "Record was successfully deleted";
+
+        }
+
     }
 }
