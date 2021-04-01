@@ -15,9 +15,9 @@
                 @foreach (var orders in Model.CurrentOrderList)
                 {
                     <li>
-                        @orders.OurCustomer.FirstName
+                        @orders.OurCustomer
 
-                        @foreach (var items in orders.OurProduct)
+                        @foreach (var items in orders.OurProduct.ToString())
                         {
                             <span>@items.Name @items.Price</span>
 

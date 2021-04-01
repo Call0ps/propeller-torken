@@ -23,11 +23,13 @@ namespace PropellerTorkenMain.Services
 
             CurrentOrderList = new List<Order>()
             {
-                new Order{Id = 1, OurCustomer = myCustomer, Date = DateTime.Now, OurProduct = new List<Product>{myProducts } },
-                new Order{Id = 2, OurCustomer = myCustomer2, Date = DateTime.Now, OurProduct = new List<Product>{myProducts2}}
+                new Order{Id = 1, OurCustomer = myCustomer.CustomerId, Date = DateTime.Now, OurProduct = myProducts.Id},
+                new Order{Id = 2, OurCustomer = myCustomer2.CustomerId, Date = DateTime.Now, OurProduct = myProducts2.Id}
             };
 
             SentOrderList = new List<Order>();
+
+            
 
         }
 
@@ -36,5 +38,13 @@ namespace PropellerTorkenMain.Services
 
         }
 
+        public IEnumerable<Order> GetAllOrders()
+        {
+            return pdc.Orders.ToList();
+        }
+
+
+
+        
     }
 }
