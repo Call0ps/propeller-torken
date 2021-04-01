@@ -44,5 +44,13 @@ namespace PropellerTorkenMain.Services
 
         }
 
+        public string AddProduct(int id, string name, int price, int qty)
+        {
+
+            pdc.Products.Add(new Product() { Id=id, Name=name, Price=price, Qty=qty});
+            pdc.SaveChanges();
+            return "New product was succesfully created";
+        }
+
     }
 }
