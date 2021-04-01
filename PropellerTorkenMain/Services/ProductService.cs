@@ -23,5 +23,17 @@ namespace PropellerTorkenMain.Services
             return pdc.Products.ToList();
         }
 
+        public IEnumerable<Product> GetProductsByName(string s)
+        {
+            if(string.IsNullOrEmpty(s))
+            {
+                return pdc.Products.ToList();
+            }
+            else
+            {
+                return pdc.Products.Where(p => p.Name.ToLower().Contains(s)).ToList();
+            }
+        }
+
     }
 }

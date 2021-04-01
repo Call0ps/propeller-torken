@@ -21,10 +21,20 @@ namespace PropellerTorkenMain.ApiControllers
 
         }
 
+        
+
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public IEnumerable<Product> Get(string s)
         {
-            return pService.GetAllProducts().ToList();
+            if(string.IsNullOrWhiteSpace(s))
+            {
+                return pService.GetAllProducts().ToList();
+            }
+            else
+            {
+                return pService.GetProductsByName(s).ToList();
+            }
+            
         }
 
 
