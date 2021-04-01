@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PropellerTorkenMain.Models;
@@ -23,6 +24,8 @@ namespace PropellerTorkenMain.Controllers
             return View();
         }
 
+        //Bara test
+        [Authorize(Roles = "Admin")]
         public IActionResult Privacy()
         {
             return View();

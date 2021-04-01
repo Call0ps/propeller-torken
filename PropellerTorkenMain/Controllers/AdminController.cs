@@ -5,8 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using PropellerTorkenMain.Models;
 using PropellerTorkenMain.Services;
-
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace PropellerTorkenMain.Controllers
 {
@@ -24,7 +23,7 @@ namespace PropellerTorkenMain.Controllers
         {
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult Adminpage()
         {
             return View();

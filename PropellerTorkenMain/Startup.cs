@@ -61,7 +61,7 @@ namespace PropellerTorkenMain
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<OrderService>();
-            
+
             services.AddDbContext<ApplicationDbContext>(options =>
                options.UseSqlServer(
                    Configuration.GetConnectionString("DefaultConnection")));
@@ -72,7 +72,9 @@ namespace PropellerTorkenMain
                                        Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddControllersWithViews();
         }
     }
