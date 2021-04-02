@@ -13,16 +13,18 @@ namespace PropellerTorkenMain.Controllers
 {
     public class AdminController : Controller
     {
-
+        public List<CombinedViewModelsService> CVMS { get; set; }
         public List<Order> orderList { get; set; }
         PropellerDataContext _ctx = new PropellerDataContext();
+
+        
+
 
         private OrderService OrderService { get; set; }
         public AdminController(OrderService orderService)
         {
             OrderService = orderService;
         }
-
 
 
         public IActionResult Index()
@@ -38,8 +40,19 @@ namespace PropellerTorkenMain.Controllers
         public IActionResult AdminOrders()
         {
             orderList = _ctx.Orders.ToList();
+            //CVMS = _ctx.Orders.ToList();
 
-            return View(orderList);
+            var _orders = _ctx.Orders.ToList();
+            var _products = _ctx.Products.ToList();
+            var _customers = _ctx.Customers.ToList();
+
+            var combined = new CombinedViewModelsService() { 
+                _Customer = _customers,
+                _Order = _orders,
+                _Product = _products 
+            };
+
+            return View(combined);
         }
 
         public IActionResult AdminSent()
