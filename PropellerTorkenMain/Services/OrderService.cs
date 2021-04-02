@@ -42,6 +42,7 @@ namespace PropellerTorkenMain.Services
         public IEnumerable<Order> GetOrders()
         {
             return ctx.Orders;
+            
         }
 
     }
