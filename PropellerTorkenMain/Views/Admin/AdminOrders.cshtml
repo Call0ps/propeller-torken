@@ -1,4 +1,4 @@
-﻿@model PropellerTorkenMain.Services.OrderService
+﻿@model IEnumerable<PropellerTorkenMain.Models.Database.Order>
 @{
     ViewData["Title"] = "AdministratorOrders";
     Layout = "~/Views/Shared/_Adminlayout.cshtml";
@@ -12,16 +12,17 @@
         @if (Model != null)
         {
             <ul>
-                @foreach (var orders in Model.CurrentOrderList)
+                @foreach (var orders in Model)
                 {
                     <li>
-                        @orders.OurCustomer.FirstName
+                        
 
-                        @foreach (var items in orders.OurProduct)
+
+                        @*@foreach (var items in orders)
                         {
                             <span>@items.Name @items.Price</span>
 
-                        } @orders.Date
+                        }*@ @orders.Date
                         <button type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = orders.Id, os = Model})'">Skicka </button>
                         <button type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = orders.Id, os = Model})'">Ta bort</button>
                     </li>

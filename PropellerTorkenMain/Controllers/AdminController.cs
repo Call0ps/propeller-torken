@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using PropellerTorkenMain.Models;
 using PropellerTorkenMain.Services;
+using PropellerTorkenMain.Models.Database;
 
 
 
@@ -12,6 +13,10 @@ namespace PropellerTorkenMain.Controllers
 {
     public class AdminController : Controller
     {
+
+        public List<Order> orderList { get; set; }
+        PropellerDataContext _ctx = new PropellerDataContext();
+
         private OrderService OrderService { get; set; }
         public AdminController(OrderService orderService)
         {
@@ -32,9 +37,9 @@ namespace PropellerTorkenMain.Controllers
         
         public IActionResult AdminOrders()
         {
-            
+            orderList = _ctx.Orders.ToList();
 
-            return View(OrderService);
+            return View(orderList);
         }
 
         public IActionResult AdminSent()
