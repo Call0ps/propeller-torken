@@ -1,21 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using PropellerTorkenMain.Models;
+﻿using PropellerTorkenMain.Models;
 using PropellerTorkenMain.Models.Database;
+using System.Collections.Generic;
 
 namespace PropellerTorkenMain.Services
 {
     public class OrderService
     {
-
-
-        public List<Orders> CurrentOrderList { get; set; }
-        public List<Orders> SentOrderList { get; set; }
-        PropellerDataContext ctx = new PropellerDataContext();
-        
-
+        private PropellerDataContext ctx = new PropellerDataContext();
 
         public OrderService()
         {
@@ -31,19 +22,18 @@ namespace PropellerTorkenMain.Services
             //};
 
             //SentOrderList = new List<Orders>();
-
         }
 
-        public void RemoveItemFromList()
-        {
-
-        }
+        public List<Orders> CurrentOrderList { get; set; }
+        public List<Orders> SentOrderList { get; set; }
 
         public IEnumerable<Order> GetOrders()
         {
             return ctx.Orders;
-            
         }
 
+        public void RemoveItemFromList()
+        {
+        }
     }
 }

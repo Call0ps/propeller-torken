@@ -1,4 +1,5 @@
-﻿@model PropellerTorkenMain.Services.CombinedViewModelsService
+﻿@* @model PropellerTorkenMain.Services.CombinedViewModelsService *@
+@model PropellerTorkenMain.Models.Database.PropellerDataContext
 @{
     ViewData["Title"] = "AdministratorOrders";
     Layout = "~/Views/Shared/_Adminlayout.cshtml";
@@ -12,22 +13,14 @@
         @if (Model != null)
         {
             <ul>
-                @foreach (var orders in Model._Order)
+                @foreach (var orders in Model.Orders)
                 {
                     <li>
-                        @foreach (var items in Model._Customer)
-                    {
-                        @orders.OurCustomer @items.Firstname
-                    }
-                        
-                    
-                        
 
-                        
                         @*<button type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = orders.Id, os = Model})'">Skicka </button>
-                        <button type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = orders.Id, os = Model})'">Ta bort</button>*@
+                            <button type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = orders.Id, os = Model})'">Ta bort</button>*@
                     </li>
-                   @* @Html.ActionLink("Delete", "DeleteFromList", new { ListNumber = orders.Id }) *@
+                    @* @Html.ActionLink("Delete", "DeleteFromList", new { ListNumber = orders.Id }) *@
                 }
             </ul>
         }

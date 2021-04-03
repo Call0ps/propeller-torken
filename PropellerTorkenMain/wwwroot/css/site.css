@@ -277,7 +277,7 @@ body {
     flex-direction: column;
 }
 
-.customerinfo-cart-label{
+.customerinfo-cart-label {
     font-size: 14px;
 }
 
@@ -546,7 +546,7 @@ input:focus {
 #currentorderlist {
     border-style: solid;
     border-width: medium;
-    background-color:white;
+    background-color: white;
 }
 
 #sentorderlist {
@@ -589,7 +589,7 @@ input:focus {
     cursor: pointer;
     opacity: 0.9;
     font-weight: bold;
-    width:auto;
+    width: auto;
 }
 
 #logopic {
@@ -605,41 +605,44 @@ input:focus {
     opacity: 1;
 }
 
-
-#propellerkepsbildenlink:visited{
-    color:black;
+#propellerkepsbildenlink:visited {
+    color: black;
 }
+
 #propellerkepsbildenlink:hover {
     color: grey;
 }
-#torktumlarbildenlink:visited{
+
+#torktumlarbildenlink:visited {
     color: black;
 }
-#torktumlarbildenlink:hover{
+
+#torktumlarbildenlink:hover {
     color: grey;
 }
-#propellerbilden:hover{
+
+#propellerbilden:hover {
     opacity: 0.8;
 }
-#torkbilden:hover{
+
+#torkbilden:hover {
     opacity: 0.8;
 }
 
 #productAlternative {
-  
 }
 
 .productItem {
-
-    position:center;
-    display:block;
+    position: center;
+    display: block;
     margin: 0 auto;
-    float:left;
+    float: left;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    padding-left:50px;
+    padding-left: 50px;
 }
+
 .contactBox {
     width: 370px;
     height: 460px;
@@ -649,8 +652,8 @@ input:focus {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    
 }
+
 .titleTitle {
     height: 60px;
     border-bottom: 1px solid #E1E8EE;
@@ -659,15 +662,18 @@ input:focus {
     font-size: 18px;
     font-weight: 400;
 }
+
 .contactBox-label {
     font-size: 24px;
-    font-weight:bolder;
+    font-weight: bolder;
     color: black;
 }
+
 .contactBoxPic {
     padding-top: 15px;
     padding-bottom: 10px;
 }
+
 .productkepsbox {
     width: 250px;
     height: 300px;
@@ -678,6 +684,7 @@ input:focus {
     display: flex;
     flex-direction: column;
 }
+
 .producttorkbox {
     width: 250px;
     height: 300px;
@@ -688,12 +695,13 @@ input:focus {
     display: flex;
     flex-direction: column;
 }
+
 .propellerBoxPic {
     padding-top: 15px;
     padding-bottom: 10px;
 }
+
 .torkBoxPic {
     padding-top: 15px;
     padding-bottom: 10px;
 }
-
