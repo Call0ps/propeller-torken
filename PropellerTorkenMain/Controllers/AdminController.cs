@@ -8,7 +8,7 @@ namespace PropellerTorkenMain.Controllers
 {
     public class AdminController : Controller
     {
-        private PropellerDataContext _ctx = new PropellerDataContext();
+        private readonly PropellerDataContext _ctx = new();
 
         public AdminController(OrderService orderService)
         {
