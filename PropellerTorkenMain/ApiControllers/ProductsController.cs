@@ -44,9 +44,9 @@ namespace PropellerTorkenMain.ApiControllers
         }
 
         [HttpPost]
-        public string Post(int id, string name, int price, int qty)
+        public string Post(string name, int price, int qty)
         {
-            return pService.AddProduct(id, name, price, qty);
+            return pService.AddProduct( name, price, qty);
         }
     }
 }

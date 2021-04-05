@@ -74,6 +74,10 @@ namespace PropellerTorkenMain
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            services.AddDbContext<PropellerDataContext>(options =>
+               options.UseSqlServer(
+                   Configuration.GetConnectionString("DefaultPropellerConnection")));
         }
     }
 }
