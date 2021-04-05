@@ -1,5 +1,4 @@
-﻿@* @model PropellerTorkenMain.Services.CombinedViewModelsService *@
-@model PropellerTorkenMain.Models.Database.PropellerDataContext
+﻿@model PropellerTorkenMain.Models.Database.PropellerDataContext
 @{
     ViewData["Title"] = "AdministratorOrders";
     Layout = "~/Views/Shared/_Adminlayout.cshtml";
@@ -12,39 +11,19 @@
 
         @if (Model != null)
         {
-            <ul>
+            <ol>
                 @foreach (var orders in Model.Orders)
                 {
                     <li>
-
-                        @*<button type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = orders.Id, os = Model})'">Skicka </button>
-                            <button type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = orders.Id, os = Model})'">Ta bort</button>*@
+                        @orders.Id
+                        <ul>
+                            <li>
+                                @orders.OurCustomer
+                            </li>
+                        </ul>
                     </li>
-                    @* @Html.ActionLink("Delete", "DeleteFromList", new { ListNumber = orders.Id }) *@
                 }
-            </ul>
+            </ol>
         }
     </div>
 </div>
-
-@*<td>
-    <form method="post" action="~/Views/Admin/AdminSent.cshtml">
-        @if (Model != null)
-        {
-            foreach (var orders in Model.CurrentOrderList)
-            {
-                <ul>
-                    <li>
-                        @orders.OurCustomer.FirstName
-                        @foreach (var items in orders.OurProduct)
-                        {
-                            @items.Name @items.Price
-                        } @orders.Date
-                        <input type="checkbox" />
-                    </li>
-                </ul>
-            }
-
-        }
-    </form>
-    </td>*@

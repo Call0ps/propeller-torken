@@ -6,8 +6,6 @@ namespace PropellerTorkenMain
 {
     public class Program
     {
-        public OrderService orderService = new OrderService();
-
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>

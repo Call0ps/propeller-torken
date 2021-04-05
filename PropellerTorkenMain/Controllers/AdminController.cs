@@ -27,18 +27,6 @@ namespace PropellerTorkenMain.Controllers
 
         public IActionResult AdminOrders()
         {
-            //     orderList = _ctx.Orders.ToList();
-            //     //CVMS = _ctx.Orders.ToList();
-
-            //     var _orders = _ctx.Orders.ToList();
-            //     var _products = _ctx.Products.ToList();
-            //     var _customers = _ctx.Customers.ToList();
-
-            //     var combined = new CombinedViewModelsService() {
-            //         _Customer = _customers,
-            //         _Order = _orders,
-            //         _Product = _products
-            //     };
             return View(_ctx);
         }
 
