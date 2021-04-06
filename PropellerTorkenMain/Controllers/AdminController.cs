@@ -27,6 +27,9 @@ namespace PropellerTorkenMain.Controllers
 
         public IActionResult AdminOrders()
         {
+
+            //var orders = _ctx.Orders.ToList();
+
             return View(_ctx);
         }
 

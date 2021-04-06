@@ -11,5 +11,9 @@ namespace PropellerTorkenMain.Models.Database
         public int OrderSum { get; set; }
         public int OurCustomer { get; set; }
         public int OurProduct { get; set; }
+
+
+        public virtual Customer _customer { get; set; }
+        public virtual Order _order { get; set; }
     }
 }

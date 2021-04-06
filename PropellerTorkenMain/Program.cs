@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using PropellerTorkenMain.Services;
+using PropellerTorkenMain.Models.Database;
 
 namespace PropellerTorkenMain
 {
@@ -15,7 +16,17 @@ namespace PropellerTorkenMain
 
         public static void Main(string[] args)
         {
+            CreateDb();
             CreateHostBuilder(args).Build().Run();
+        }
+
+        private static void CreateDb()
+        {
+            using (var context = new PropellerDataContext())
+            {
+                context.Database.EnsureCreated();
+                context.SaveChanges();
+            }
         }
     }
 }

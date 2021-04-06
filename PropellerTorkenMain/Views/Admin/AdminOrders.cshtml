@@ -11,19 +11,15 @@
 
         @if (Model != null)
         {
-            <ol>
-                @foreach (var orders in Model.Orders)
+            
+            <ul>
+                @foreach (var items in Model.Orders)
                 {
                     <li>
-                        @orders.Id
-                        <ul>
-                            <li>
-                                @orders.OurCustomer
-                            </li>
-                        </ul>
+                        <span>@items.Id @items._customer.Firstname @items._customer.Lastname</span>
                     </li>
                 }
-            </ol>
+            </ul>
         }
     </div>
 </div>
