@@ -28,20 +28,20 @@ namespace PropellerTorkenMain.Controllers
         {
             return View();
         }
-        
+        [Authorize(Roles = "Admin")]
         public IActionResult AdminOrders()
         {
             
 
             return View(OrderService);
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult AdminSent()
         {
             return View(OrderService);
         }
 
-
+        [Authorize(Roles = "Admin")]
         public IActionResult AdminContact()
         {
             return View();
