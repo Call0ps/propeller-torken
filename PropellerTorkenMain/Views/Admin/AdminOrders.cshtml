@@ -1,4 +1,4 @@
-﻿@model PropellerTorkenMain.Models.Database.PropellerDataContext
+﻿@model PropellerTorkenMain.Services.OrderService
 @{
     ViewData["Title"] = "AdministratorOrders";
     Layout = "~/Views/Shared/_Adminlayout.cshtml";
@@ -11,9 +11,9 @@
 
         @if (Model != null)
         {
-            
+
             <ul>
-                @foreach (var items in Model.Orders)
+                @foreach (var items in Model.CurrentOrderList)
                 {
                     <li>
                         <span>@items.Id @items._customer.Firstname @items._customer.Lastname</span>

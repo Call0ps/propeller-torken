@@ -1,15 +1,37 @@
-﻿using PropellerTorkenMain.Models;
+﻿
+using PropellerTorkenMain.Models;
 using PropellerTorkenMain.Models.Database;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 
 namespace PropellerTorkenMain.Services
 {
     public class OrderService
     {
-        private PropellerDataContext ctx = new PropellerDataContext();
+        public PropellerDataContext ctx = new PropellerDataContext();
+        public List<Order> CurrentOrderList { get; set; }
+        public List<Order> SentOrderList { get; set; }
+        public Order _order { get; set; }
+
+        
+
 
         public OrderService()
         {
+            CurrentOrderList = ctx.Orders.ToList();
+        }
+
+        
+
+        public List<Order> GetOrders()
+        {
+            return ctx.Orders.Include(o => o._customer).Include(p => p._order).ToList();
+        }
+
+        public void RemoveItemFromList()
+        {
+
             //Products myProducts = new Products() { ID = 1, Name = "PropellerKeps1", Price = 150 };
             //Customer myCustomer = new Customer() { FirstName = "Carl", LastName = "Bajs", Address = "Bajsgatan 1", City = "Malmö", ZipCode = 12345, Email = "InteBajs@gmail.com", PhoneNr = "070812345678" };
             //Products myProducts2 = new Products() { ID = 2, Name = "Torktumlare", Price = 1500 };
@@ -22,18 +44,7 @@ namespace PropellerTorkenMain.Services
             //};
 
             //SentOrderList = new List<Orders>();
-        }
 
-        public List<Orders> CurrentOrderList { get; set; }
-        public List<Orders> SentOrderList { get; set; }
-
-        public IEnumerable<Order> GetOrders()
-        {
-            return ctx.Orders;
-        }
-
-        public void RemoveItemFromList()
-        {
         }
     }
 }

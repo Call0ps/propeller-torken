@@ -27,10 +27,15 @@ namespace PropellerTorkenMain.Controllers
 
         public IActionResult AdminOrders()
         {
-
+            //List<Order> ourOrders = new List<Order>();
             //var orders = _ctx.Orders.ToList();
+            //ourOrders = _ctx.Orders.ToList();
 
-            return View(_ctx);
+            //OrderService.GetOrders();
+
+            //var model = OrderService.GetOrders();
+
+            return View(OrderService);
         }
 
         public IActionResult Adminpage()
@@ -48,6 +53,8 @@ namespace PropellerTorkenMain.Controllers
             os.CurrentOrderList = OrderService.CurrentOrderList;
             os.CurrentOrderList.Remove(os.CurrentOrderList.FirstOrDefault(t => t.Id == id));
             OrderService.CurrentOrderList = os.CurrentOrderList;
+
+            //_ctx.Orders.Remove(_ctx.Orders.FirstOrDefault(t => t.Id == id));
 
             return View("AdminOrders", os);
         }
