@@ -12,6 +12,7 @@ namespace PropellerTorkenMain.Models
         public int Id { get; set; }
         public Customer OurCustomer { get; set; }
         public List<Products> OurProduct { get; set; }
+        public int OrderSum { get; set; }
 
     }
 }
