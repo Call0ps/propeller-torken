@@ -35,7 +35,7 @@ namespace PropellerTorkenMain.Controllers
 
             //var model = OrderService.GetOrders();
 
-            return View(OrderService);
+            return View(OrderService.GetOrders());
         }
 
         public IActionResult Adminpage()

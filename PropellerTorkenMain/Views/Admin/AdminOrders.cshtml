@@ -1,4 +1,4 @@
-﻿@model PropellerTorkenMain.Services.OrderService
+﻿@model List<PropellerTorkenMain.Models.Database.Order>
 @{
     ViewData["Title"] = "AdministratorOrders";
     Layout = "~/Views/Shared/_Adminlayout.cshtml";
@@ -13,10 +13,11 @@
         {
 
             <ul>
-                @foreach (var items in Model.CurrentOrderList)
+                @foreach (var items in Model)
                 {
                     <li>
-                        <span>@items.Id @items._customer.Firstname @items._customer.Lastname</span>
+                        <span>@items.Id @items.Date</span>
+                        <span><button class="btn btn-success">Skicka</button><button>Ta Bort</button></span>
                     </li>
                 }
             </ul>
