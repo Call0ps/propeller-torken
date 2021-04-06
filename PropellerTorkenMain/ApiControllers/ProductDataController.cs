@@ -34,7 +34,6 @@ namespace PropellerTorkenMain.ApiControllers
             {
                 return pService.GetProductsByName(s).ToList();
             }
-
         }
 
         [HttpDelete]
