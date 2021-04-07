@@ -19,7 +19,7 @@ namespace PropellerTorkenMain.Services
 
         public OrderService()
         {
-            CurrentOrderList = ctx.Orders.ToList();
+            //CurrentOrderList = ctx.Orders.ToList();
         }
 
         
@@ -29,8 +29,20 @@ namespace PropellerTorkenMain.Services
             return ctx.Orders.Include(o => o._customer).Include(p => p._order).ToList();
         }
 
-        public void RemoveItemFromList()
+
+        public void SendToSentView(int id)
         {
+            var sentItem = ctx.Orders.FirstOrDefault(x => x.Id == id);
+
+
+        }
+
+        public void RemoveItemFromList(int id)
+        {
+
+            var listItemToRemove = ctx.Orders.FirstOrDefault(p => p.Id == id);
+            ctx.Orders.Remove(listItemToRemove);
+            ctx.SaveChanges();
 
             //Products myProducts = new Products() { ID = 1, Name = "PropellerKeps1", Price = 150 };
             //Customer myCustomer = new Customer() { FirstName = "Carl", LastName = "Bajs", Address = "Bajsgatan 1", City = "Malmö", ZipCode = 12345, Email = "InteBajs@gmail.com", PhoneNr = "070812345678" };
