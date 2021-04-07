@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using PropellerTorkenMain.Models;
+
 using PropellerTorkenMain.Models.Database;
 
 namespace PropellerTorkenMain.Services
@@ -11,8 +11,8 @@ namespace PropellerTorkenMain.Services
     {
 
 
-        public List<Orders> CurrentOrderList { get; set; }
-        public List<Orders> SentOrderList { get; set; }
+        public List<Order> CurrentOrderList { get; set; }
+        public List<Order> SentOrderList { get; set; }
         public List<Product> productList { get; set; }
 
         PropellerDataContext pdc = new PropellerDataContext();

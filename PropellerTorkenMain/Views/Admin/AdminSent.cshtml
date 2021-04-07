@@ -11,20 +11,20 @@
 
         @if (Model != null)
         {
-            <ul>
-                @foreach (var orders in Model.SentOrderList)
+        <ul>
+            @* @foreach (var orders in Model.SentOrderList)
+        {
+            <li>
+
+                @orders.OurCustomer.FirstName
+                @foreach (var items in orders.OurProduct)
                 {
-                    <li>
-
-                        @orders.OurCustomer.FirstName
-                        @foreach (var items in orders.OurProduct)
-                        {
-                            <span>@items.Name @items.Price</span>
-                        }
-                    </li>
-
+                    <span>@items.Name @items.Price</span>
                 }
-            </ul>
+            </li>*@
+
+            }
+        </ul>
         }
     </div>
 </div>
