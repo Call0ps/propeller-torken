@@ -24,20 +24,21 @@ namespace PropellerTorkenMain.Services
 
         
 
-        public List<Order> GetOrders()
+        public List<Order> GetOrders(string orderStatus = null)
         {
-            return ctx.Orders.Include(o => o._customer).Include(p => p._order).ToList();
+            var orders = ctx.Orders.Include(o => o.OurCustomerNavigation).Where(o => o.OrderStatus == orderStatus);
+
+
+            return orders.ToList();
+            //return null;
         }
 
 
-        public void SendToSentView(int id)
+        public void SetStatusToSent(int id)
         {
             var sentItem = ctx.Orders.FirstOrDefault(x => x.Id == id);
-
-            //ctx.SentOrders.Add(sentItem);
-            //ctx.Orders.Remove(sentItem);
-            //ctx.SaveChanges();
-
+            sentItem.OrderStatus = "SENT";
+            ctx.SaveChanges();
         }
 
         //public void List<SentOrder> GetAllSentOrders()

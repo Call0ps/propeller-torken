@@ -35,8 +35,8 @@ namespace PropellerTorkenMain.Controllers
             //OrderService.GetOrders();
 
             //var model = OrderService.GetOrders();
-
-            return View(OrderService.GetOrders());
+            var orders = OrderService.GetOrders();
+            return View(orders);
         }
 
         public IActionResult Adminpage()
@@ -46,7 +46,8 @@ namespace PropellerTorkenMain.Controllers
 
         public IActionResult AdminSent()
         {
-            return View(OrderService);
+            var orders = OrderService.GetOrders("SENT");
+            return View(orders);
         }
 
         public IActionResult Delete(int id)
@@ -84,7 +85,7 @@ namespace PropellerTorkenMain.Controllers
             //OrderService.CurrentOrderList = os.CurrentOrderList;
             //OrderService.SentOrderList = os.SentOrderList;
 
-
+            OrderService.SetStatusToSent(id);
 
             return View("AdminOrders");
         }

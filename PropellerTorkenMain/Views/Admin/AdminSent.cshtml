@@ -1,30 +1,27 @@
-﻿@model PropellerTorkenMain.Services.OrderService
+﻿@model List<PropellerTorkenMain.Models.Database.Order>
 @{
     ViewData["Title"] = "AdministratorSentOrders";
     Layout = "~/Views/Shared/_Adminlayout.cshtml";
 }
 
 <h1>HÄR SKA SKICKADE ORDRAR VISAS</h1>
-@*<div id="sentOrders">
+<div id="sentOrders">
     <h2>Skickade ordrar</h2>
     <div id="sentorderlist">
 
         @if (Model != null)
         {
             <ul>
-                @foreach (var orders in Model.SentOrderList)
+                @foreach (var orders in Model)
                 {
                     <li>
-
-                        @orders.OurCustomer.FirstName
-                        @foreach (var items in orders.OurProduct)
-                        {
-                            <span>@items.Name @items.Price</span>
-                        }
+                        <span>
+                            @orders.Id @orders.Date @orders.OrderStatus
+                        </span>
                     </li>
 
                 }
             </ul>
         }
     </div>
-</div>*@
+</div>
