@@ -38,9 +38,14 @@ namespace PropellerTorkenMain.Services
             //ctx.Orders.Remove(sentItem);
             //ctx.SaveChanges();
 
-
-
         }
+
+        //public void List<SentOrder> GetAllSentOrders()
+        //{
+
+        //    return ctx.SentOrders.ToList();
+
+        //}
 
         public void RemoveItemFromList(int id)
         {
