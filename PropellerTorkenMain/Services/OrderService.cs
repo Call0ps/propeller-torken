@@ -34,6 +34,11 @@ namespace PropellerTorkenMain.Services
         {
             var sentItem = ctx.Orders.FirstOrDefault(x => x.Id == id);
 
+            //ctx.SentOrders.Add(sentItem);
+            //ctx.Orders.Remove(sentItem);
+            //ctx.SaveChanges();
+
+
 
         }
 

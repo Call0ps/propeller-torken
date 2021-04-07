@@ -65,9 +65,9 @@ namespace PropellerTorkenMain.Controllers
 
             //_ctx.Orders.Remove(_ctx.Orders.FirstOrDefault(t => t.Id == id));
 
-            
 
-            return View("AdminOrders");
+
+            return RedirectToAction("AdminOrders");
         }
 
         public IActionResult Index()
