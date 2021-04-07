@@ -1,5 +1,4 @@
-﻿// ta in cart
-
+﻿@model PropellerTorkenMain.Models.Cart
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
@@ -13,7 +12,7 @@
         var popup = document.getElementById("myPopup");
         popup.classList.toggle("show");
     }
-    </script>
+</script>
 
 
 <div class="container">
@@ -26,179 +25,38 @@
                     Shopping Bag
                 </div>
 
-                <!-- Propellerkeps Product #1 -->
-                <div class="item">
-                    <div class="buttons">
-                        <span class="delete-btn"></span>
-                    </div>
 
-                    <div class="image">
-                        <img src="~/images/circle-cropped (3).png" width="100" height="100" />
-                    </div>
+                <div>
+                    @foreach (var item in Model.products)
+                    {
+                        <div class="item">
+                            <div class="buttons">
+                                <span class="delete-btn"></span>
+                            </div>
 
-                    <div class="description">
-                        <span>Propellerkeps 1</span>
-                        <span>Begagnad</span>
-                        <span>Vit</span>
-                    </div>
+                            <div class="image">
+                                <img src="~/images/circle-cropped (3).png" width="100" height="100" />
+                            </div>
 
-                    <div class="quantity">
-                        <button class="plus-btn" type="button" name="button">
-                            <img src="plus.svg" alt="" />
-                        </button>
-                        <input type="text" name="name" value="1">
-                        <button class="minus-btn" type="button" name="button">
-                            <img src="minus.svg" alt="" />
-                        </button>
-                    </div>
+                            <div class="description">
+                                <span>@item.Name</span>
+                                <span>Begagnad</span>
+                                <span>Vit</span>
+                            </div>
 
-                    <div class="total-price">100 SEK</div>
-                </div>
+                            <div class="quantity">
+                                <button class="plus-btn" type="button" name="button">
+                                    <img src="plus.svg" alt="" />
+                                </button>
+                                <input type="text" name="name" value=@item.Qty>
+                                <button class="minus-btn" type="button" name="button">
+                                    <img src="minus.svg" alt="" />
+                                </button>
+                            </div>
 
-                <br />
-
-                <!-- Propellerkeps Product #2 -->
-                <div class="item">
-                    <div class="buttons">
-                        <span class="delete-btn"></span>
-                    </div>
-
-                    <div class="image">
-                        <img src="~/images/carlcropped.png" width="100" height="100" />
-                    </div>
-
-                    <div class="description">
-                        <span>Propellerkeps 2</span>
-                        <span>Begagnad</span>
-                        <span>Vit</span>
-                    </div>
-
-                    <div class="quantity">
-                        <button class="plus-btn" type="button" name="button">
-                            <img src="plus.svg" alt="" />
-                        </button>
-                        <input type="text" name="name" value="1">
-                        <button class="minus-btn" type="button" name="button">
-                            <img src="minus.svg" alt="" />
-                        </button>
-                    </div>
-
-                    <div class="total-price">150 SEK</div>
-                </div>
-
-                <!-- Propellerkeps Product #3 -->
-                <div class="item">
-                    <div class="buttons">
-                        <span class="delete-btn"></span>
-                    </div>
-
-                    <div class="image">
-                        <img src="~/images/carlcropped.png" width="100" height="100" />
-                    </div>
-
-                    <div class="description">
-                        <span>Propellerkeps 3</span>
-                        <span>Begagnad</span>
-                        <span>Vit</span>
-                    </div>
-
-                    <div class="quantity">
-                        <button class="plus-btn" type="button" name="button">
-                            <img src="plus.svg" alt="" />
-                        </button>
-                        <input type="text" name="name" value="1">
-                        <button class="minus-btn" type="button" name="button">
-                            <img src="minus.svg" alt="" />
-                        </button>
-                    </div>
-
-                    <div class="total-price">200 SEK</div>
-                </div>
-
-                <!-- Torktumlare Product #4 -->
-                <div class="item">
-                    <div class="buttons">
-                        <span class="delete-btn"></span>
-                    </div>
-
-                    <div class="image">
-                        <img src="~/images/carlcropped.png" width="100" height="100" />
-                    </div>
-
-                    <div class="description">
-                        <span>Torktumlare 1</span>
-                        <span>Begagnad</span>
-                        <span>Vit</span>
-                    </div>
-
-                    <div class="quantity">
-                        <button class="plus-btn" type="button" name="button">
-                            <img src="plus.svg" alt="" />
-                        </button>
-                        <input type="text" name="name" value="1">
-                        <button class="minus-btn" type="button" name="button">
-                            <img src="minus.svg" alt="" />
-                        </button>
-                    </div>
-
-                    <div class="total-price">1000 SEK</div>
-                </div>
-
-                <!-- Torktumlare Product #5 -->
-                <div class="item">
-                    <div class="buttons">
-                        <span class="delete-btn"></span>
-                    </div>
-
-                    <div class="image">
-                        <img src="~/images/carlcropped.png" width="100" height="100" />
-                    </div>
-
-                    <div class="description">
-                        <span>Torktumlare 2</span>
-                        <span>Begagnad</span>
-                        <span>Vit</span>
-                    </div>
-
-                    <div class="quantity">
-                        <button class="plus-btn" type="button" name="button">
-                            <img src="plus.svg" alt="" />
-                        </button>
-                        <input type="text" name="name" value="1">
-                        <button class="minus-btn" type="button" name="button">
-                            <img src="minus.svg" alt="" />
-                        </button>
-                    </div>
-
-                    <div class="total-price">2000 SEK</div>
-                </div>
-
-                <!-- Torktumlare Product #6 -->
-                <div class="item">
-                    <div class="buttons">
-                        <span class="delete-btn"></span>
-                    </div>
-
-                    <div class="image">
-                        <img src="~/images/carlcropped.png" width="100" height="100" />
-                    </div>
-
-                    <div class="description">
-                        <span>Torktumlare 3</span>
-                        <span>Begagnad</span>
-                        <span>Vit</span>
-                    </div>
-
-                    <div class="quantity">
-                        <button class="plus-btn" type="button" name="button">
-                            <img src="plus.svg" alt="" />
-                        </button>
-                        <input type="text" name="name" value="1">
-                        <button class="minus-btn" type="button" name="button">
-                            <img src="minus.svg" alt="" />
-                        </button>
-                    </div>
-                    <div class="total-price">3000 SEK</div>
+                            <div class="total-price">@item.Price SEK</div>
+                        </div>
+                    }
 
                 </div>
             </div>
@@ -241,18 +99,46 @@
                     <label class="customerinfo-cart-label">Email:</label><br />
                     <input type="text" name="email" id="email" required placeholder="din email..." />
                 </div><br />
-                      <div class="popup d-flex justify-content-center ">
 
-                          <button type="submit" onsubmit="myFunction()" name="CustomerInfoSubmit" id="CustomerConfirmButton" value="Bekräfta">Bekräfta</button><br />
-                          <span class="popuptext" id="myPopup">Din order har registrerats!</span>
+                <div class="popup d-flex justify-content-center" >
+                    <button type="submit" name="CustomerInfoSubmit" id="CustomerConfirmButton" value="Bekräfta">Bekräfta</button><br />
+                    <span class="popuptext" id="myPopup">Din order har registrerats!</span>
+                </div>
 
-                      </div>
-                
 
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("CustomerConfirmButton");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
 <script>
     var button = document.getElementById("CustomerConfirmButton");
 

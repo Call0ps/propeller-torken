@@ -10,12 +10,12 @@ namespace PropellerTorkenMain.Services
     {
 
         public List<Product> productList { get; set; }
-        PropellerDataContext pdc = new PropellerDataContext();
+        PropellerDataContext pdc; 
 
 
         public ProductService()
         {
-
+            pdc = new PropellerDataContext();
         }
 
         public IEnumerable<Product> GetAllProducts()

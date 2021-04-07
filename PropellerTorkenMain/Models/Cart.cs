@@ -8,6 +8,8 @@ namespace PropellerTorkenMain.Models
 {
     public class Cart
     {
+
+
         public List<Product> products { get; set; }
         public Customer customer { get; set; }
 
