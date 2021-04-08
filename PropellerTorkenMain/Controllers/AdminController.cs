@@ -5,6 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
+using System.Threading.Tasks;
+using PropellerTorkenMain.Models;
+using PropellerTorkenMain.Services;
+using Microsoft.AspNetCore.Authorization;
+
+
 namespace PropellerTorkenMain.Controllers
 {
     public class AdminController : Controller
@@ -71,10 +77,12 @@ namespace PropellerTorkenMain.Controllers
             return RedirectToAction("AdminOrders");
         }
 
+
         public IActionResult Index()
         {
             return View();
         }
+
 
         public IActionResult Send(int id)
         {

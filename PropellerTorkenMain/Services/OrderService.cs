@@ -84,7 +84,10 @@ namespace PropellerTorkenMain.Services
                 OrderSum = orderSum
 
 
-            }); ;
+
+            }); 
+
+
             ctx.SaveChanges();
             return "Order successfully created";
         }

@@ -7,6 +7,10 @@ namespace PropellerTorkenMain
 {
     public class Program
     {
+
+        public OrderService orderService = new OrderService();
+
+
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
@@ -16,6 +20,7 @@ namespace PropellerTorkenMain
 
         public static void Main(string[] args)
         {
+
             CreateDb();
             CreateHostBuilder(args).Build().Run();
         }
@@ -23,6 +28,7 @@ namespace PropellerTorkenMain
         private static void CreateDb()
         {
             using (var context = new PropellerDataContext())
+
             {
                 context.Database.EnsureCreated();
                 context.SaveChanges();

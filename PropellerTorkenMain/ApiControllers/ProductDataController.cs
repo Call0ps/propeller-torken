@@ -21,12 +21,12 @@ namespace PropellerTorkenMain.ApiControllers
 
         }
 
-        
+
 
         [HttpGet]
         public IEnumerable<Product> Get(string s)
         {
-            if(string.IsNullOrWhiteSpace(s))
+            if (string.IsNullOrWhiteSpace(s))
             {
                 return pService.GetAllProducts().ToList();
             }
@@ -34,7 +34,12 @@ namespace PropellerTorkenMain.ApiControllers
             {
                 return pService.GetProductsByName(s).ToList();
             }
-            
+        }
+
+        [HttpDelete]
+        public string Delete(int id)
+        {
+            return pService.DeleteProduct(id);
         }
 
         [HttpDelete]
