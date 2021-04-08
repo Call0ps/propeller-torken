@@ -16,16 +16,12 @@
                 {
                     <li>
                         <span>
-                            @orders.Id @orders.Date @orders.OrderStatus
+                            @orders.Id @orders.Date @orders.OrderStatus @orders.OurCustomerNavigation.Firstname
                         </span>
                     </li>
-
-                @orders.OurCustomer.FirstName
-                @foreach (var items in orders.OurProduct)
-                {
-                    <span>@items.Name @items.Price</span>
-                }
-            </li>*@
+                    
+                
+               
 
             }
         </ul>

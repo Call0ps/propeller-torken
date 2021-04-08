@@ -1,6 +1,7 @@
 ﻿
 using PropellerTorkenMain.Models;
 using PropellerTorkenMain.Models.Database;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -42,60 +43,50 @@ namespace PropellerTorkenMain.Services
             var sentItem = ctx.Orders.FirstOrDefault(x => x.Id == id);
             sentItem.OrderStatus = "SENT";
             ctx.SaveChanges();
-        public List<Order> CurrentOrderList { get; set; }
-        public List<Order> SentOrderList { get; set; }
-        public List<Product> productList { get; set; }
-
-        PropellerDataContext pdc = new PropellerDataContext();
-        
 
 
-        public OrderService()
-        {
-            
 
         }
 
         public IEnumerable<Order> Get()
         {
-            return pdc.Orders.ToList();
+            return ctx.Orders.ToList();
         }
 
         public IEnumerable<Order> GetOrderById(int id)
         {
-            if (int.Equals(id,0))
+            if (int.Equals(id, 0))
             {
-                return pdc.Orders.ToList();
+                return ctx.Orders.ToList();
             }
             else
             {
-                return pdc.Orders.Where(o => o.Id == id).ToList();
+                return ctx.Orders.Where(o => o.Id == id).ToList();
             }
-            
+
         }
 
         public string DeleteOrder(int id)
         {
-            var orderToRemove = pdc.Orders.Where(o => o.Id == id).Single<Order>();
-            pdc.Orders.Remove(orderToRemove);
-            pdc.SaveChanges();
+            var orderToRemove = ctx.Orders.Where(o => o.Id == id).Single<Order>();
+            ctx.Orders.Remove(orderToRemove);
+            ctx.SaveChanges();
             return "Order successfully removed";
         }
 
-        public string AddOrder(int customerId, int productId, int orderSum)
+        public string AddOrder(int customerId, int orderSum)
         {
-           
-            
-            pdc.Orders.Add(new Order
+
+
+            ctx.Orders.Add(new Order
             {
                 Date = DateTime.Now,
                 OurCustomer = customerId,
-                OurProduct = productId,
-                OrderSum = orderSum,
-                
-                
+                OrderSum = orderSum
+
+
             });
-            pdc.SaveChanges();
+            ctx.SaveChanges();
             return "Order successfully created";
         }
 
@@ -127,5 +118,8 @@ namespace PropellerTorkenMain.Services
             //SentOrderList = new List<Orders>();
 
         }
+
+
+
     }
 }
