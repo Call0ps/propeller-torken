@@ -11,6 +11,7 @@
             <div class="productkepsbox" id="kepsbox">
                 <form method="post">
 
+
                     <div class="propellerFirstPic" align="center">
                         <img class="img-thumbnail img-fluid" id="propellerbilden" src="~/images/propkeps_3.jpg" height="200" width="200" />
                     </div>
@@ -18,13 +19,15 @@
                     <h5 style="text-align:center">Vår ena propellerkeps</h5>
                     <p class="text-wrap" style="text-align:center">Den är fantastisk!</p>
                     <div class="d-flex justify-content-center ">
-                        <input type="button" class="btn-danger btn-lg" id="redbutton" value="Add to cart" />
-                        </div>
+                        <button class="btn-danger btn-lg" asp-action="CreateSessionForItem1" style="font-size:18px" id="redbutton">Add to cart <i class="fa fa-shopping-cart"></i></button>
+                    </div>
+
+
                 </form>
             </div>
         </article>
 
-        <article class="col-sm-4" >
+        <article class="col-sm-4">
             <div class="productkepsbox" id="kepsbox">
                 <form method="post">
                     <div class="propellerSecPic" align="center">
@@ -33,10 +36,10 @@
                     <h5 style="text-align:center">Här är den andra</h5>
                     <p class="text-wrap" style="text-align:center">Visst är den fin?</p>
                     <div class="d-flex justify-content-center ">
-                        <input type="button" class="btn-danger btn-lg" id="redbutton" value="Add to cart" />
-                        </div>
+                        <button class="btn-danger btn-lg" asp-action="CreateSessionForItem2" style="font-size:18px" id="redbutton">Add to cart <i class="fa fa-shopping-cart"></i></button>
+                    </div>
                 </form>
-                </div>
+            </div>
         </article>
         <article class="col-sm-4">
             <div class="productkepsbox" id="kepsbox">
@@ -47,10 +50,10 @@
                     <h5 style="text-align:center">Och den första igen</h5>
                     <p class="text-wrap" style="text-align:center">Jag sover med min varje natt.</p>
                     <div class="d-flex justify-content-center ">
-                    <input type="button" class="btn-danger btn-lg" id="redbutton" value="Add to cart" />
+                        <button class="btn-danger btn-lg" asp-action="CreateSessionForItem3" style="font-size:18px" id="redbutton">Add to cart <i class="fa fa-shopping-cart"></i></button>
                     </div>
                 </form>
-                </div>
+            </div>
         </article>
-    </div>  
+    </div>
 </section>

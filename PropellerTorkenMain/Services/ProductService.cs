@@ -10,11 +10,15 @@ namespace PropellerTorkenMain.Services
     {
 
         public List<Product> productList { get; set; }
-        PropellerDataContext pdc = new PropellerDataContext();
+
+        PropellerDataContext pdc; 
+
 
 
         public ProductService()
         {
+
+            pdc = new PropellerDataContext();
 
         }
 
@@ -25,7 +29,9 @@ namespace PropellerTorkenMain.Services
 
         public IEnumerable<Product> GetProductsByName(string s)
         {
-            if(string.IsNullOrEmpty(s))
+
+            if (string.IsNullOrEmpty(s))
+
             {
                 return pdc.Products.ToList();
             }
@@ -35,5 +41,24 @@ namespace PropellerTorkenMain.Services
             }
         }
 
+
+        public string DeleteProduct(int id)
+        {
+            var productToDelete = pdc.Products.Where(p => p.Id == id).Single<Product>();
+            pdc.Products.Remove(productToDelete);
+            pdc.SaveChanges();
+            return "Record was successfully deleted";
+
+        }
+
+        public string AddProduct(int id, string name, int price, int qty)
+        {
+
+            pdc.Products.Add(new Product() { Id = id, Name = name, Price = price, Qty = qty });
+            pdc.SaveChanges();
+            return "New product was succesfully created";
+        }
+
     }
 }
+

@@ -12,7 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PropellerTorkenMain.Services;
 using PropellerTorkenMain.Data;
-using PropellerTorkenMain.Models;
+
+
 using PropellerTorkenMain.Models.Database;
 
 namespace PropellerTorkenMain
@@ -40,6 +41,9 @@ namespace PropellerTorkenMain
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSession();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -60,11 +64,13 @@ namespace PropellerTorkenMain
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<OrderService>();
+            services.AddSession();
 
+            services.AddSingleton<OrderService>();
             services.AddDbContext<ApplicationDbContext>(options =>
                options.UseSqlServer(
                    Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<PropellerDataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DataConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDbContext<PropellerDataContext>(options =>
