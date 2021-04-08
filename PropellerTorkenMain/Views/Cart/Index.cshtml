@@ -25,7 +25,7 @@
                     Shopping Bag
                 </div>
 
-
+                
                 <div>
                     @foreach (var item in Model.products)
                     {
@@ -45,7 +45,7 @@
                             </div>
 
                             <div class="quantity">
-                                <button class="plus-btn" type="button" name="button">
+                                <button class="plus-btn" asp-action="IncrementQtyForProduct" type="button" name="button">
                                     <img src="plus.svg" alt="" />
                                 </button>
                                 <input type="text" name="name" value=@item.Qty>
