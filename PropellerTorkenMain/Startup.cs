@@ -9,6 +9,7 @@ using PropellerTorkenMain.Data;
 using PropellerTorkenMain.Services;
 using PropellerTorkenMain.Models;
 using PropellerTorkenMain.Models.Database;
+using PropellerTorkenMain.Hubs;
 
 namespace PropellerTorkenMain
 {
@@ -49,12 +50,15 @@ namespace PropellerTorkenMain
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHub<OrderHub>("/orderHub");
             });
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSignalR();
+
             services.AddSingleton<OrderService>();
             
             services.AddDbContext<ApplicationDbContext>(options =>
