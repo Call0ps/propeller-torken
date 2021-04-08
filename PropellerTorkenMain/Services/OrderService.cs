@@ -77,7 +77,6 @@ namespace PropellerTorkenMain.Services
         public string AddOrder(int customerId, int orderSum)
         {
 
-
             ctx.Orders.Add(new Order
             {
                 Date = DateTime.Now,
@@ -85,7 +84,7 @@ namespace PropellerTorkenMain.Services
                 OrderSum = orderSum
 
 
-            });
+            }); ;
             ctx.SaveChanges();
             return "Order successfully created";
         }
