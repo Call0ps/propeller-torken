@@ -20,7 +20,7 @@ namespace PropellerTorkenMain.Controllers
             OrderService = orderService;
         }
 
-        // public List<CombinedViewModelsService> CVMS { get; set; }
+      
         public List<Order> orderList { get; set; }
 
         private OrderService OrderService { get; set; }
@@ -37,44 +37,26 @@ namespace PropellerTorkenMain.Controllers
         
         public IActionResult AdminOrders()
         {
-            //List<Order> ourOrders = new List<Order>();
-            //var orders = _ctx.Orders.ToList();
-            //ourOrders = _ctx.Orders.ToList();
-
-            //OrderService.GetOrders();
-
-            //var model = OrderService.GetOrders();
+         
             var orders = OrderService.GetOrders();
             return View(orders);
         }
 
         public IActionResult AdminSent()
         {
-            return View();
-        }
-
-
-        public IActionResult AdminContact()
-        {
+          
             var orders = OrderService.GetOrders("SENT");
             return View(orders);
         }
+
+
+       
 
         public IActionResult Delete(int id)
         {
 
             OrderService.RemoveItemFromList(id);
-            //os = OrderService.ctx.Orders.ToList();
-            //os.Remove(os.FirstOrDefault(t => t.Id == id));
-            //OrderService.ctx.SaveChanges();
-
-            //OrderService.CurrentOrderList = os.CurrentOrderList;
-
-            //OrderService.CurrentOrderList.Remove(OrderService.CurrentOrderList.FirstOrDefault(t => t.Id == id));
-
-            //OrderService.GetOrders().Remove(OrderService.GetOrders().FirstOrDefault(t => t.Id == id));
-
-            //_ctx.Orders.Remove(_ctx.Orders.FirstOrDefault(t => t.Id == id));
+           
 
 
 
@@ -88,28 +70,13 @@ namespace PropellerTorkenMain.Controllers
 
         public IActionResult Send(int id)
         {
-            //os.CurrentOrderList = OrderService.CurrentOrderList;
-            //os.SentOrderList = OrderService.SentOrderList;
-            //os.SentOrderList.Add(os.CurrentOrderList.FirstOrDefault(c => c.Id == id));
-            //os.CurrentOrderList.Remove(os.CurrentOrderList.FirstOrDefault(t => t.Id == id));
-            //OrderService.CurrentOrderList = os.CurrentOrderList;
-            //OrderService.SentOrderList = os.SentOrderList;
+          
 
             OrderService.SetStatusToSent(id);
 
             return View("AdminOrders");
         }
 
-        //[HttpPost]
-        //public IActionResult AdminOrders(OrderService os)
-        //{
-        //    return View(os);
-        //}
-
-        //[HttpPost]
-        //public IActionResult AdminSent(OrderService os)
-        //{
-        //    return View(os);
-        //}
+     
     }
 }

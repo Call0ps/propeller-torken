@@ -42,11 +42,7 @@ namespace PropellerTorkenMain.ApiControllers
             return pService.DeleteProduct(id);
         }
 
-        [HttpDelete]
-        public string Delete(int id)
-        {
-            return pService.DeleteProduct(id);
-        }
+      
 
         [HttpPost]
         public string Post(string name, int price, int qty)

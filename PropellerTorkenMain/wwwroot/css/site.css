@@ -674,27 +674,9 @@ input:focus {
     padding-bottom: 10px;
 }
 
-.productkepsbox {
-    width: 250px;
-    height: 300px;
-    margin: 10px auto;
-    background: #FFFFFF;
-    box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
-    border-radius: 10px;
-    /*display: flex;
-    flex-direction: column;*/
-}
 
-.producttorkbox {
-    width: 200px;
-    height: 300px;
-    margin: 10px auto;
-    background: #FFFFFF;
-    box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
-    border-radius: 10px;
-    /*display: flex;
-    flex-direction: column;*/
-}
+
+
 .propellerBoxPic {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -703,7 +685,7 @@ input:focus {
     padding-top: 20px;
     padding-bottom: 20px;
 }
-.productkepsbox {
+.productbox {
     width: 350px;
     height: 450px;
     margin: 20px auto;
@@ -712,15 +694,8 @@ input:focus {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    padding-top: 30px;
   
 }
 
-.propellerBoxPic {
-    padding-top: 15px;
-    padding-bottom: 10px;
-}
 
-.torkBoxPic {
-    padding-top: 15px;
-    padding-bottom: 10px;
-}

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PropellerTorkenMain.Models;
+using PropellerTorkenMain.Models.Database;
 using PropellerTorkenMain.Services;
 using System;
 using System.Collections.Generic;
@@ -43,35 +44,35 @@ namespace PropellerTorkenMain.Controllers
 
         public IActionResult CreateSessionForItem1() 
         {
-                SessionHandler("PropellerKeps2");
+                SessionHandler("PropellerKeps1");
 
             return View("PropellerKepsar");
         }
 
         public IActionResult CreateSessionForItem2()
         {
-            SessionHandler("PropellerKeps3");
+            SessionHandler("PropellerKeps2");
             
             return View("PropellerKepsar");
         }
 
         public IActionResult CreateSessionForItem3()
         {
-            SessionHandler("Torktumlare1");
+            SessionHandler("PropellerKeps3");
 
             return View("PropellerKepsar");
         }
 
         public IActionResult CreateSessionForItem4()
         {
-            SessionHandler("Torktumalre2");
+            SessionHandler("Torktumlare1");
 
             return View("Torktumlare");
         }
 
         public IActionResult CreateSessionForItem5()
         {
-            SessionHandler("Torktumlare3");
+            SessionHandler("Torktumlare2");
 
             return View("Torktumlare");
         }
@@ -79,7 +80,7 @@ namespace PropellerTorkenMain.Controllers
         public IActionResult CreateSessionForItem6()
         {
 
-            SessionHandler("Torktumlare5");
+            SessionHandler("Torktumlare3");
 
             return View("Torktumlare");
         }
