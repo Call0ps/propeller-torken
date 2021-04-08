@@ -1,56 +1,30 @@
-
-using PropellerTorkenMain.Models.Database;
-
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PropellerTorkenMain.Models;
 using PropellerTorkenMain.Models.Database;
 using PropellerTorkenMain.Services;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-
 
 namespace PropellerTorkenMain.Controllers
 {
     public class ProductController : Controller
     {
-
-        ProductService pc;
-
+        private PropellerDataContext _ctx = new PropellerDataContext();
+        private ProductService pc;
 
         public ProductController()
         {
             pc = new ProductService();
         }
 
-
-        private PropellerDataContext _ctx = new PropellerDataContext();
-
         public void AddItemToCart()
         {
         }
 
-        public IActionResult Index()
+        public IActionResult CreateSessionForItem1()
         {
-            return View();
-        }
-
-        public IActionResult PropellerKepsar()
-        {
-            return View();
-        }
-
-        public IActionResult TorkTumlare()
-        {
-            return View();
-        }
-
-        public IActionResult CreateSessionForItem1() 
-        {
-                SessionHandler("PropellerKeps1");
+            SessionHandler("PropellerKeps1");
 
             return View("PropellerKepsar");
         }
@@ -58,7 +32,7 @@ namespace PropellerTorkenMain.Controllers
         public IActionResult CreateSessionForItem2()
         {
             SessionHandler("PropellerKeps2");
-            
+
             return View("PropellerKepsar");
         }
 
@@ -85,10 +59,19 @@ namespace PropellerTorkenMain.Controllers
 
         public IActionResult CreateSessionForItem6()
         {
-
             SessionHandler("Torktumlare3");
 
             return View("Torktumlare");
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult PropellerKepsar()
+        {
+            return View();
         }
 
         public void SessionHandler(string productname)
@@ -118,6 +101,11 @@ namespace PropellerTorkenMain.Controllers
                 str = JsonConvert.SerializeObject(cart);
                 HttpContext.Session.SetString("cart", str);
             }
+        }
+
+        public IActionResult TorkTumlare()
+        {
+            return View();
         }
     }
 }

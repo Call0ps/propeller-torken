@@ -430,16 +430,14 @@ input:focus {
 
 /* Shopping-bag end*/
 
-
-
-    /*Pop-up button
+/*Pop-up button
 ---------------------------------------------------/
 / Popup container /*/
-    .popup {
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-    }
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
 
     /*  / The actual popup (appears on top) /*/
     .popup .popuptext {
@@ -674,17 +672,16 @@ input:focus {
     padding-bottom: 10px;
 }
 
-
-
-
 .propellerBoxPic {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
 .torkBoxPic {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
 .productbox {
     width: 350px;
     height: 450px;
@@ -695,7 +692,4 @@ input:focus {
     display: flex;
     flex-direction: column;
     padding-top: 30px;
-  
 }
-
-
