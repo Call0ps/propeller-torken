@@ -20,6 +20,12 @@ namespace PropellerTorkenMain.Controllers
             pc = new ProductService();
         }
 
+        private PropellerDataContext _ctx = new PropellerDataContext();
+
+        public void AddItemToCart()
+        {
+        }
+
         public IActionResult Index()
         {
             return View();

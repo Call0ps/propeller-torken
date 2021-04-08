@@ -41,7 +41,6 @@ namespace PropellerTorkenMain.Services
             }
         }
 
-
         public string DeleteProduct(int id)
         {
             var productToDelete = pdc.Products.Where(p => p.Id == id).Single<Product>();
@@ -51,10 +50,10 @@ namespace PropellerTorkenMain.Services
 
         }
 
-        public string AddProduct(int id, string name, int price, int qty)
+        public string AddProduct(string name, int price, int qty)
         {
 
-            pdc.Products.Add(new Product() { Id = id, Name = name, Price = price, Qty = qty });
+            pdc.Products.Add(new Product() { Name=name, Price=price, Qty=qty});
             pdc.SaveChanges();
             return "New product was succesfully created";
         }

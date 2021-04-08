@@ -1,26 +1,109 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿
 using PropellerTorkenMain.Models;
 using PropellerTorkenMain.Models.Database;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Threading.Tasks;
+
+
 
 namespace PropellerTorkenMain.Services
 {
     public class OrderService
     {
+        public PropellerDataContext ctx = new PropellerDataContext();
+        public List<Order> CurrentOrderList { get; set; }
+        public List<Order> SentOrderList { get; set; }
+        public Order _order { get; set; }
 
-
-        public List<Orders> CurrentOrderList { get; set; }
-        public List<Orders> SentOrderList { get; set; }
-        public List<Product> productList { get; set; }
-
-        PropellerDataContext pdc = new PropellerDataContext();
         
 
 
         public OrderService()
         {
+            //CurrentOrderList = ctx.Orders.ToList();
+        }
+
+        
+
+        public List<Order> GetOrders(string orderStatus = null)
+        {
+            var orders = ctx.Orders.Include(o => o.OurCustomerNavigation).Where(o => o.OrderStatus == orderStatus);
+
+
+            return orders.ToList();
+            //return null;
+        }
+
+
+        public void SetStatusToSent(int id)
+        {
+            var sentItem = ctx.Orders.FirstOrDefault(x => x.Id == id);
+            sentItem.OrderStatus = "SENT";
+            ctx.SaveChanges();
+
+
+
+        }
+
+        public IEnumerable<Order> Get()
+        {
+            return ctx.Orders.ToList();
+        }
+
+        public IEnumerable<Order> GetOrderById(int id)
+        {
+            if (int.Equals(id, 0))
+            {
+                return ctx.Orders.ToList();
+            }
+            else
+            {
+                return ctx.Orders.Where(o => o.Id == id).ToList();
+            }
+
+        }
+
+        public string DeleteOrder(int id)
+        {
+            var orderToRemove = ctx.Orders.Where(o => o.Id == id).Single<Order>();
+            ctx.Orders.Remove(orderToRemove);
+            ctx.SaveChanges();
+            return "Order successfully removed";
+        }
+
+        public string AddOrder(int customerId, int orderSum)
+        {
+
+
+            ctx.Orders.Add(new Order
+            {
+                Date = DateTime.Now,
+                OurCustomer = customerId,
+                OrderSum = orderSum
+
+
+            });
+            ctx.SaveChanges();
+            return "Order successfully created";
+        }
+
+        //public void List<SentOrder> GetAllSentOrders()
+        //{
+
+        //    return ctx.SentOrders.ToList();
+
+        //}
+
+        public void RemoveItemFromList(int id)
+        {
+
+            var listItemToRemove = ctx.Orders.FirstOrDefault(p => p.Id == id);
+            ctx.Orders.Remove(listItemToRemove);
+            ctx.SaveChanges();
+
             //Products myProducts = new Products() { ID = 1, Name = "PropellerKeps1", Price = 150 };
             //Customer myCustomer = new Customer() { FirstName = "Carl", LastName = "Bajs", Address = "Bajsgatan 1", City = "Malmö", ZipCode = 12345, Email = "InteBajs@gmail.com", PhoneNr = "070812345678" };
             //Products myProducts2 = new Products() { ID = 2, Name = "Torktumlare", Price = 1500 };
@@ -36,16 +119,7 @@ namespace PropellerTorkenMain.Services
 
         }
 
-        public void RemoveItemFromList()
-        {
 
-        }
-
-
-        public IEnumerable<Product> GetAllProducts()
-        {
-            return pdc.Products.ToList();
-        }
 
     }
 }
