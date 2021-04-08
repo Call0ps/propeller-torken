@@ -40,18 +40,24 @@
                             </div>
 
                             <div class="quantity">
-                                <button class="plus-btn" asp-action="IncrementQtyForProduct" type="button" name="button">
-                                    <img src="plus.svg" alt="" />
-                                </button>
-                                <input type="text" name="name" value=@item.Qty>
-                                <button class="minus-btn" type="button" name="button">
-                                    <img src="minus.svg" alt="" />
-                                </button>
+                                @Html.ActionLink("-", "DecrementQtyForProduct", "Cart", new { productName = item.Name})
+                                <img src="plus.svg" alt="" />
+
+                                <span>@item.Qty</span>
+                                
+                                @Html.ActionLink("+", "IncrementQtyForProduct", "Cart", new { productName = item.Name })
+                                <img src="minus.svg" alt="" />
                             </div>
 
-                            <div class="total-price">@item.Price SEK</div>
+                            <div 
+                                 class="total-price">@item.Price SEK
+                            </div>
                         </div>
                     }
+
+                <div align:"right">
+                    <p>Total belopp: @Model.CartSum</p>
+                </div>    
 
                 </div>
             </div>
@@ -110,8 +116,6 @@
 </div>
 
 <script>
-    
-        
 
     var button = document.getElementById("CustomerConfirmButton");
 
@@ -210,9 +214,9 @@
             boolEmail = true;
             if (boolFirstName && boolLastName && boolStreet && boolZipCode && boolCity && boolPhoneNumber && boolEmail) {
                 button.disabled = false;
-               
+
             }
-           
+
         }
     });
     function myFunction() {
@@ -221,7 +225,7 @@
         document.getElementById("confirm").textContent = "";
         popup.classList += "show";
 
-        
+
     }
 
 </script>
