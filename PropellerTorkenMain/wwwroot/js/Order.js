@@ -6,8 +6,6 @@ connection.on("RecieveMessage", function (message) {
     var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
     var encodedMsg = msg;
     window.alert(encodedMsg);
-
-
 });
 
 connection.start().then(function () {
@@ -15,4 +13,3 @@ connection.start().then(function () {
 }).catch(function (err) {
     return console.error(err.toString());
 });
-

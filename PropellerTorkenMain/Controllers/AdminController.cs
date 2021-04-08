@@ -2,14 +2,6 @@
 using PropellerTorkenMain.Models.Database;
 using PropellerTorkenMain.Services;
 using System.Collections.Generic;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-
-using System.Threading.Tasks;
-using PropellerTorkenMain.Models;
-using PropellerTorkenMain.Services;
-using Microsoft.AspNetCore.Authorization;
-
 
 namespace PropellerTorkenMain.Controllers
 {
@@ -22,7 +14,6 @@ namespace PropellerTorkenMain.Controllers
             OrderService = orderService;
         }
 
-      
         public List<Order> orderList { get; set; }
 
         private OrderService OrderService { get; set; }
@@ -34,7 +25,6 @@ namespace PropellerTorkenMain.Controllers
 
         public IActionResult AdminOrders()
         {
-         
             var orders = OrderService.GetOrders();
             return View(orders);
         }
@@ -50,36 +40,23 @@ namespace PropellerTorkenMain.Controllers
             return View(orders);
         }
 
-
-       
-
         public IActionResult Delete(int id)
         {
-
             OrderService.RemoveItemFromList(id);
-           
-
-
 
             return RedirectToAction("AdminOrders");
         }
-
 
         public IActionResult Index()
         {
             return View();
         }
 
-
         public IActionResult Send(int id)
         {
-          
-
             OrderService.SetStatusToSent(id);
 
             return View("AdminOrders");
         }
-
-     
     }
 }

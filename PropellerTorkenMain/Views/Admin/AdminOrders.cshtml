@@ -7,31 +7,24 @@
 <h1>HÄR SKA ORDRAR VISAS</h1>
 <div id="currentOrders">
     <h2>Nuvarande ordrar</h2>
-    <div class="table table-striped"  id="currentorderlist">
+    <div class="table table-striped" id="currentorderlist">
 
         @if (Model != null)
         {
-        <table>
+            <table>
 
+                @foreach (var items in Model)
+                {
+                    <tr>
 
+                        <td>  @items.Id  </td>
+                        <td>  @items.Date  </td>
+                        <td> <button class="btn btn-info" type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = items.Id, os = Model})'">Skicka </button>   </td>
+                        <td> <button class=" btn btn-danger" type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = items.Id, os = Model})'">Ta bort</button> </td>
+                    </tr>
 
-            @foreach (var items in Model)
-            {
-            <tr>
-
-                <td>  @items.Id  </td>
-                <td>  @items.Date  </td>
-                <td> <button class="btn btn-info" type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = items.Id, os = Model})'">Skicka </button>   </td>
-                <td> <button class=" btn btn-danger" type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = items.Id, os = Model})'">Ta bort</button> </td>
-
-            </tr>
-
-                
-
-            }
-        </table>
+                }
+            </table>
         }
     </div>
-    </div>
-
-
+</div>

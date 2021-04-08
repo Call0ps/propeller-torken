@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using PropellerTorkenMain.Models.Database;
+using PropellerTorkenMain.Services;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using PropellerTorkenMain.Services;
-using PropellerTorkenMain.Models.Database;
 
 namespace PropellerTorkenMain.ApiControllers
 {
