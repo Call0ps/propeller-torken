@@ -7,12 +7,7 @@
     Layout = "../Shared/_Layout.cshtml";
 
 }
-<script>
-    function myFunction() {
-        var popup = document.getElementById("myPopup");
-        popup.classList.toggle("show");
-    }
-</script>
+
 
 
 <div class="container">
@@ -65,6 +60,7 @@
 
 
         <div class="customerinfo-cart" id="CustomerInfo">
+
             <form method="post">
 
                 <div class="title">
@@ -73,37 +69,39 @@
 
                 <div align="center">
                     <label class="customerinfo-cart-label">Förnamn:</label><br />
-                    <input type="text" name="firstName" id="firstName" required placeholder="ditt förnamn..." />
+                    <input type="text" name="firstName" id="firstName" required placeholder="Ditt förnamn..." />
                 </div>
                 <div align="center">
                     <label class="customerinfo-cart-label">Efternamn:</label><br />
-                    <input type="text" name="lastName" id="lastName" required placeholder="ditt efternamn..." />
+                    <input type="text" name="lastName" id="lastName" required placeholder="Ditt efternamn..." />
                 </div>
                 <div align="center">
                     <label class="customerinfo-cart-label">Gatuadress:</label><br />
-                    <input type="text" name="street" id="street" required placeholder="din postadress..." />
+                    <input type="text" name="street" id="street" required placeholder="Din postadress..." />
                 </div>
                 <div align="center">
                     <label class="customerinfo-cart-label">Postnummer:</label><br />
-                    <input type="text" name="zipCode" id="zipCode" required placeholder="ditt postnummer..." />
+                    <input type="text" name="zipCode" id="zipCode" required placeholder="Ditt postnummer..." />
                 </div>
                 <div align="center">
                     <label class="customerinfo-cart-label">Postort:</label><br />
-                    <input type="text" name="city" id="city" required placeholder="din postort ..." />
+                    <input type="text" name="city" id="city" required placeholder="Din postort ..." />
                 </div>
                 <div align="center">
                     <label class="customerinfo-cart-label">Telefonnummer:</label><br />
-                    <input type="text" name="phoneNumber" id="phoneNumber" required placeholder="ditt telefonnummer..." />
+                    <input type="text" name="phoneNumber" id="phoneNumber" required placeholder="Ditt telefonnummer..." />
                 </div>
                 <div align="center">
                     <label class="customerinfo-cart-label">Email:</label><br />
-                    <input type="text" name="email" id="email" required placeholder="din email..." />
+                    <input type="text" name="email" id="email" required placeholder="Din email..." />
                 </div><br />
 
-                <div class="popup d-flex justify-content-center" >
-                    <button type="submit" name="CustomerInfoSubmit" id="CustomerConfirmButton" value="Bekräfta">Bekräfta</button><br />
-                    <span class="popuptext" id="myPopup">Din order har registrerats!</span>
-                </div>
+                      <div class="d-flex justify-content-center">
+                          @*byt type till submit när webApi är klart*@
+                          <button class="btn btn-success popup" type="button" onclick="myFunction()" name="CustomerInfoSubmit" id="CustomerConfirmButton" value="Bekräfta"><span id="confirm">Bekräfta</span><span class="popuptext" id="myPopup">Order registrerad</span></button><br />
+                          
+
+                      </div>
 
 
             </form>
@@ -112,34 +110,9 @@
 </div>
 
 <script>
-    // Get the modal
-    var modal = document.getElementById("myModal");
+    
+        
 
-    // Get the button that opens the modal
-    var btn = document.getElementById("CustomerConfirmButton");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks the button, open the modal
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-</script>
-
-<script>
     var button = document.getElementById("CustomerConfirmButton");
 
 
@@ -158,7 +131,7 @@
 
     firstName.addEventListener("change", function () {
         if (firstName.validity.typeMismatch) {
-            firstName.setCustomValidity("Fyll i för- och efternamn!");
+            firstName.setCustomValidity("Fyll i förnamn!");
         }
         else {
             firstName.setCustomValidity("");
@@ -170,7 +143,7 @@
 
     lastName.addEventListener("change", function () {
         if (lastName.validity.typeMismatch) {
-            lastName.setCustomValidity("Fyll i för- och efternamn!");
+            lastName.setCustomValidity("Fyll i efternamn!");
         }
         else {
             lastName.setCustomValidity("");
@@ -237,11 +210,22 @@
             boolEmail = true;
             if (boolFirstName && boolLastName && boolStreet && boolZipCode && boolCity && boolPhoneNumber && boolEmail) {
                 button.disabled = false;
-
+               
             }
+           
         }
     });
+    function myFunction() {
+        var popup = document.getElementById("myPopup");
+        popup.style.display = "block";
+        document.getElementById("confirm").textContent = "";
+        popup.classList += "show";
+
+        
+    }
+
 </script>
+
 
 
 

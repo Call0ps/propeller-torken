@@ -430,9 +430,7 @@ input:focus {
 
 /* Shopping-bag end*/
 
-#CustomerConfirmButton {
-    background-color: aquamarine
-}
+
 
     /*Pop-up button
 ---------------------------------------------------/
@@ -549,6 +547,8 @@ input:focus {
     border-style: solid;
     border-width: medium;
     background-color:white;
+    table-layout: fixed;
+    
 }
 
 #sentorderlist {
