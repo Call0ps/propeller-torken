@@ -9,7 +9,7 @@ namespace PropellerTorkenMain.Models.Database
     {
         public Product()
         {
-            Orders = new HashSet<Order>();
+            ProductsInOrders = new HashSet<ProductsInOrder>();
         }
 
         public int Id { get; set; }
@@ -17,6 +17,6 @@ namespace PropellerTorkenMain.Models.Database
         public int Price { get; set; }
         public int Qty { get; set; }
 
-        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<ProductsInOrder> ProductsInOrders { get; set; }
     }
 }

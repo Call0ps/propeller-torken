@@ -1,72 +1,125 @@
-﻿using System;
+﻿
+using PropellerTorkenMain.Models;
+using PropellerTorkenMain.Models.Database;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 
-using PropellerTorkenMain.Models.Database;
+
 
 namespace PropellerTorkenMain.Services
 {
     public class OrderService
     {
-
-
+        public PropellerDataContext ctx = new PropellerDataContext();
         public List<Order> CurrentOrderList { get; set; }
         public List<Order> SentOrderList { get; set; }
-        public List<Product> productList { get; set; }
+        public Order _order { get; set; }
 
-        PropellerDataContext pdc = new PropellerDataContext();
         
 
 
         public OrderService()
         {
-            
+            //CurrentOrderList = ctx.Orders.ToList();
+        }
+
+        
+
+        public List<Order> GetOrders(string orderStatus = null)
+        {
+            var orders = ctx.Orders.Include(o => o.OurCustomerNavigation).Where(o => o.OrderStatus == orderStatus);
+
+
+            return orders.ToList();
+            //return null;
+        }
+
+
+        public void SetStatusToSent(int id)
+        {
+            var sentItem = ctx.Orders.FirstOrDefault(x => x.Id == id);
+            sentItem.OrderStatus = "SENT";
+            ctx.SaveChanges();
+
+
 
         }
 
         public IEnumerable<Order> Get()
         {
-            return pdc.Orders.ToList();
+            return ctx.Orders.ToList();
         }
 
         public IEnumerable<Order> GetOrderById(int id)
         {
-            if (int.Equals(id,0))
+            if (int.Equals(id, 0))
             {
-                return pdc.Orders.ToList();
+                return ctx.Orders.ToList();
             }
             else
             {
-                return pdc.Orders.Where(o => o.Id == id).ToList();
+                return ctx.Orders.Where(o => o.Id == id).ToList();
             }
-            
+
         }
 
         public string DeleteOrder(int id)
         {
-            var orderToRemove = pdc.Orders.Where(o => o.Id == id).Single<Order>();
-            pdc.Orders.Remove(orderToRemove);
-            pdc.SaveChanges();
+            var orderToRemove = ctx.Orders.Where(o => o.Id == id).Single<Order>();
+            ctx.Orders.Remove(orderToRemove);
+            ctx.SaveChanges();
             return "Order successfully removed";
         }
 
-        public string AddOrder(int customerId, int productId, int orderSum)
+        public string AddOrder(int customerId, int orderSum)
         {
-           
-            
-            pdc.Orders.Add(new Order
+
+
+            ctx.Orders.Add(new Order
             {
                 Date = DateTime.Now,
                 OurCustomer = customerId,
-                OurProduct = productId,
-                OrderSum = orderSum,
-                
-                
+                OrderSum = orderSum
+
+
             });
-            pdc.SaveChanges();
+            ctx.SaveChanges();
             return "Order successfully created";
         }
+
+        //public void List<SentOrder> GetAllSentOrders()
+        //{
+
+        //    return ctx.SentOrders.ToList();
+
+        //}
+
+        public void RemoveItemFromList(int id)
+        {
+
+            var listItemToRemove = ctx.Orders.FirstOrDefault(p => p.Id == id);
+            ctx.Orders.Remove(listItemToRemove);
+            ctx.SaveChanges();
+
+            //Products myProducts = new Products() { ID = 1, Name = "PropellerKeps1", Price = 150 };
+            //Customer myCustomer = new Customer() { FirstName = "Carl", LastName = "Bajs", Address = "Bajsgatan 1", City = "Malmö", ZipCode = 12345, Email = "InteBajs@gmail.com", PhoneNr = "070812345678" };
+            //Products myProducts2 = new Products() { ID = 2, Name = "Torktumlare", Price = 1500 };
+            //Customer myCustomer2 = new Customer() { FirstName = "Anton", LastName = "Fitness", Address = "LundVägen 37", City = "Lund", ZipCode = 11223, Email = "AntonFitness@gmail.com", PhoneNr = "07089996633" };
+
+            //CurrentOrderList = new List<Orders>()
+            //{
+            //    new Orders{Id = 1, OurCustomer = myCustomer, Date = DateTime.Now, OurProduct = new List<Products>{myProducts } },
+            //    new Orders{Id = 2, OurCustomer = myCustomer2, Date = DateTime.Now, OurProduct = new List<Products>{myProducts2}}
+            //};
+
+            //SentOrderList = new List<Orders>();
+
+        }
+
+
 
     }
 }

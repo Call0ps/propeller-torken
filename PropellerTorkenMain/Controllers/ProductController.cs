@@ -1,13 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using PropellerTorkenMain.Models.Database;
 
 namespace PropellerTorkenMain.Controllers
 {
     public class ProductController : Controller
     {
+        private PropellerDataContext _ctx = new PropellerDataContext();
+
+        public void AddItemToCart()
+        {
+        }
+
         public IActionResult Index()
         {
             return View();

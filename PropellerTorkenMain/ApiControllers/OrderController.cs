@@ -40,9 +40,9 @@ namespace PropellerTorkenMain.ApiControllers
         }
 
         [HttpPost]
-        public string CreateOrder(int customerId, int productId, int orderSum)
+        public string CreateOrder(int customerId, int orderSum)
         {
-            return os.AddOrder(customerId, productId, orderSum);
+            return os.AddOrder(customerId, orderSum);
         }
     }
 }
