@@ -10,12 +10,16 @@ namespace PropellerTorkenMain.Services
     {
 
         public List<Product> productList { get; set; }
+
         PropellerDataContext pdc; 
+
 
 
         public ProductService()
         {
+
             pdc = new PropellerDataContext();
+
         }
 
         public IEnumerable<Product> GetAllProducts()
@@ -25,7 +29,9 @@ namespace PropellerTorkenMain.Services
 
         public IEnumerable<Product> GetProductsByName(string s)
         {
+
             if (string.IsNullOrEmpty(s))
+
             {
                 return pdc.Products.ToList();
             }
@@ -34,6 +40,7 @@ namespace PropellerTorkenMain.Services
                 return pdc.Products.Where(p => p.Name.ToLower().Contains(s)).ToList();
             }
         }
+
 
         public string DeleteProduct(int id)
         {
@@ -54,3 +61,4 @@ namespace PropellerTorkenMain.Services
 
     }
 }
+

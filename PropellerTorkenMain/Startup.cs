@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PropellerTorkenMain.Services;
 using PropellerTorkenMain.Data;
+
+
 using PropellerTorkenMain.Models.Database;
 
 namespace PropellerTorkenMain
@@ -71,8 +73,14 @@ namespace PropellerTorkenMain
             services.AddDbContext<PropellerDataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DataConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
+            services.AddDbContext<PropellerDataContext>(options =>
+                options.UseSqlServer(
+                                       Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddControllersWithViews();
         }
     }
