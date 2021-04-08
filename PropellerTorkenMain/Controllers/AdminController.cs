@@ -4,6 +4,10 @@ using PropellerTorkenMain.Services;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using PropellerTorkenMain.Models;
+using PropellerTorkenMain.Services;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PropellerTorkenMain.Controllers
 {
@@ -26,6 +30,11 @@ namespace PropellerTorkenMain.Controllers
             return View();
         }
 
+        public IActionResult Adminpage()
+        {
+            return View();
+        }
+        
         public IActionResult AdminOrders()
         {
             //List<Order> ourOrders = new List<Order>();
@@ -39,12 +48,13 @@ namespace PropellerTorkenMain.Controllers
             return View(orders);
         }
 
-        public IActionResult Adminpage()
+        public IActionResult AdminSent()
         {
             return View();
         }
 
-        public IActionResult AdminSent()
+
+        public IActionResult AdminContact()
         {
             var orders = OrderService.GetOrders("SENT");
             return View(orders);

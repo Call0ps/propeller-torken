@@ -430,9 +430,7 @@ input:focus {
 
 /* Shopping-bag end*/
 
-#CustomerConfirmButton {
-    background-color: aquamarine
-}
+
 
     /*Pop-up button
 ---------------------------------------------------/
@@ -586,7 +584,7 @@ input:focus {
 #loginbtn {
     color: black;
     background-color: hotpink;
-    /*padding: 15px 20px;*/
+    padding: 15px 20px;
     border: thin;
     cursor: pointer;
     opacity: 0.9;
