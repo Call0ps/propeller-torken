@@ -9,7 +9,6 @@
 }
 
 
-
 <div class="container">
     <div class="row">
         <div class="col" id="CartList">
@@ -19,6 +18,7 @@
                 <div class="title">
                     Shopping Bag
                 </div>
+
 
                 
                 <div>
@@ -53,11 +53,10 @@
                         </div>
                     }
 
+
                 </div>
             </div>
         </div>
-
-
 
         <div class="customerinfo-cart" id="CustomerInfo">
 
@@ -96,14 +95,13 @@
                     <input type="text" name="email" id="email" required placeholder="Din email..." />
                 </div><br />
 
+
                       <div class="d-flex justify-content-center">
                           @*byt type till submit när webApi är klart*@
                           <button class="btn btn-success popup" type="button" onclick="myFunction()" name="CustomerInfoSubmit" id="CustomerConfirmButton" value="Bekräfta"><span id="confirm">Bekräfta</span><span class="popuptext" id="myPopup">Order registrerad</span></button><br />
-                          
-
-                      </div>
-
-
+                   
+              </div>
+                </div>
             </form>
         </div>
     </div>
@@ -113,7 +111,9 @@
     
         
 
+
     var button = document.getElementById("CustomerConfirmButton");
+
 
     // Disable the button on initial page load
     button.disabled = true;
@@ -224,6 +224,11 @@
     }
 
 </script>
+
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/NotifyOrder.js"> </script>   
+
+
 
 
 

@@ -12,27 +12,7 @@
         @if (Model != null)
         {
 
-            <ul>
-                @foreach (var items in Model)
-                {
-                    <li>
-                        <span>@items.Id @items.Date</span>
-                        <span>
-                            @*<button type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = items.Id, os = Model})'">Skicka </button>*@
-                            <button type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = items.Id, os = Model})'">Skicka </button>
-                            <button type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = items.Id, os = Model})'">Ta bort</button>
-
-                        } @orders.Date
-
-                        <div>
-                            <button class="btn btn-info" type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = orders.Id, os = Model})'">Skicka </button>
-                            <button class=" btn btn-danger" type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = orders.Id, os = Model})'">Ta bort</button>
-                        </div>
-                    </div>
-                </li>
-                    @*@Html.ActionLink("Delete", "DeleteFromList", new { ListNumber = orders.Id })*@
-                }
-            </ul>
+            
         }
     </div>
 </div>

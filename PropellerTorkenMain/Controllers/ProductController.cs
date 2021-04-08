@@ -1,3 +1,6 @@
+
+using PropellerTorkenMain.Models.Database;
+
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -8,10 +11,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace PropellerTorkenMain.Controllers
 {
     public class ProductController : Controller
     {
+
         ProductService pc;
 
 
@@ -19,6 +24,7 @@ namespace PropellerTorkenMain.Controllers
         {
             pc = new ProductService();
         }
+
 
         private PropellerDataContext _ctx = new PropellerDataContext();
 
