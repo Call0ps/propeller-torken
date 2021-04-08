@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PropellerTorkenMain.Data;
 using PropellerTorkenMain.Services;
+using PropellerTorkenMain.Models;
+using PropellerTorkenMain.Models.Database;
 
 namespace PropellerTorkenMain
 {
@@ -54,15 +56,23 @@ namespace PropellerTorkenMain
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<OrderService>();
-
+            
             services.AddDbContext<ApplicationDbContext>(options =>
                options.UseSqlServer(
                    Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
+            services.AddDbContext<PropellerDataContext>(options =>
+                options.UseSqlServer(
+                                       Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+
+            services.AddDbContext<PropellerDataContext>(options =>
+               options.UseSqlServer(
+                   Configuration.GetConnectionString("DefaultPropellerConnection")));
         }
     }
 }

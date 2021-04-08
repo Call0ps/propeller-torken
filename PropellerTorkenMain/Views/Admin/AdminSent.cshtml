@@ -20,8 +20,15 @@
                         </span>
                     </li>
 
+                @orders.OurCustomer.FirstName
+                @foreach (var items in orders.OurProduct)
+                {
+                    <span>@items.Name @items.Price</span>
                 }
-            </ul>
+            </li>*@
+
+            }
+        </ul>
         }
     </div>
 </div>

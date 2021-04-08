@@ -12,7 +12,7 @@ namespace PropellerTorkenMain.Models.Database
             Orders = new HashSet<Order>();
         }
 
-        public int CustomerId { get; set; }
+
         public string Address { get; set; }
         public string City { get; set; }
         public string Email { get; set; }
@@ -20,6 +20,7 @@ namespace PropellerTorkenMain.Models.Database
         public string Lastname { get; set; }
         public string PhoneNr { get; set; }
         public int Zipcode { get; set; }
+        public int CustomerId { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
     }
