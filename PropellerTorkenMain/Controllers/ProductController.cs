@@ -17,9 +17,19 @@ namespace PropellerTorkenMain.Controllers
         {
             pc = new ProductService();
         }
-
-        public void AddItemToCart()
+        
+          public IActionResult Index()
         {
+            return View();
+        }
+
+        public IActionResult PropellerKepsar()
+        {
+            return View();
+        }
+          public IActionResult TorkTumlare()
+        {
+            return View();
         }
 
         public IActionResult CreateSessionForItem1()
@@ -59,20 +69,13 @@ namespace PropellerTorkenMain.Controllers
 
         public IActionResult CreateSessionForItem6()
         {
+
             SessionHandler("Torktumlare3");
 
             return View("Torktumlare");
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult PropellerKepsar()
-        {
-            return View();
-        }
+      
 
         public void SessionHandler(string productname)
         {
@@ -80,7 +83,10 @@ namespace PropellerTorkenMain.Controllers
             {
                 Cart cart = new Cart();
                 var product = pc.GetProductsByName(productname).FirstOrDefault();
+
                 cart.products.Add(product);
+                cart.CartSum = cart.products.FirstOrDefault().Price;
+
                 var str = JsonConvert.SerializeObject(cart);
                 HttpContext.Session.SetString("cart", str);
             }
@@ -91,11 +97,13 @@ namespace PropellerTorkenMain.Controllers
                 if (cart.products.Any(product => product.Name == productname))
                 {
                     cart.products.Find(product => product.Name == productname).Qty++;
+                    cart.GetCartSum();
                 }
                 else
                 {
                     var product = pc.GetProductsByName(productname).FirstOrDefault();
                     cart.products.Add(product);
+                    cart.GetCartSum();
                 }
 
                 str = JsonConvert.SerializeObject(cart);
@@ -103,9 +111,6 @@ namespace PropellerTorkenMain.Controllers
             }
         }
 
-        public IActionResult TorkTumlare()
-        {
-            return View();
-        }
+      
     }
 }
