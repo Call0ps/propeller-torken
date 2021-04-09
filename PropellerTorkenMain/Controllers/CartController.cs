@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PropellerTorkenMain.Models;
@@ -28,7 +28,6 @@ namespace PropellerTorkenMain.Controllers
             }
             var str = HttpContext.Session.GetString("cart");
             var cart = JsonConvert.DeserializeObject<Cart>(str);
-
 
             return View(cart);
         }
@@ -62,7 +61,6 @@ namespace PropellerTorkenMain.Controllers
 
             return View("Index", cart);
         }
-
 
         public Cart IncrementQty(string productname)
         {

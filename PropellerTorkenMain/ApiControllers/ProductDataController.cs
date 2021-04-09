@@ -1,11 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using PropellerTorkenMain.Models.Database;
+using PropellerTorkenMain.Services;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using PropellerTorkenMain.Services;
-using PropellerTorkenMain.Models.Database;
 
 namespace PropellerTorkenMain.ApiControllers
 {
@@ -13,15 +10,17 @@ namespace PropellerTorkenMain.ApiControllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-
-        ProductService pService = new ProductService();
+        private ProductService pService = new ProductService();
 
         public ProductsController()
         {
-
         }
 
-
+        [HttpDelete]
+        public string Delete(int id)
+        {
+            return pService.DeleteProduct(id);
+        }
 
         [HttpGet]
         public IEnumerable<Product> Get(string s)
@@ -36,16 +35,10 @@ namespace PropellerTorkenMain.ApiControllers
             }
         }
 
-        [HttpDelete]
-        public string Delete(int id)
-        {
-            return pService.DeleteProduct(id);
-        }
-
         [HttpPost]
-        public string Post(int id, string name, int price, int qty)
+        public string Post(string name, int price, int qty)
         {
-            return pService.AddProduct(id, name, price, qty);
+            return pService.AddProduct(name, price, qty);
         }
     }
 }

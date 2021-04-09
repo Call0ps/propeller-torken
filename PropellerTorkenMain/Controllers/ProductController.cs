@@ -1,26 +1,24 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PropellerTorkenMain.Models;
+using PropellerTorkenMain.Models.Database;
 using PropellerTorkenMain.Services;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PropellerTorkenMain.Controllers
 {
     public class ProductController : Controller
     {
-        ProductService pc;
-
+        private PropellerDataContext _ctx = new PropellerDataContext();
+        private ProductService pc;
 
         public ProductController()
         {
             pc = new ProductService();
         }
-
-        public IActionResult Index()
+        
+          public IActionResult Index()
         {
             return View();
         }
@@ -29,8 +27,7 @@ namespace PropellerTorkenMain.Controllers
         {
             return View();
         }
-
-        public IActionResult TorkTumlare()
+          public IActionResult TorkTumlare()
         {
             return View();
         }
@@ -45,7 +42,7 @@ namespace PropellerTorkenMain.Controllers
         public IActionResult CreateSessionForItem2()
         {
             SessionHandler("PropellerKeps2");
-            
+
             return View("PropellerKepsar");
         }
 
@@ -77,6 +74,8 @@ namespace PropellerTorkenMain.Controllers
 
             return View("Torktumlare");
         }
+
+      
 
         public void SessionHandler(string productname)
         {
@@ -111,5 +110,7 @@ namespace PropellerTorkenMain.Controllers
                 HttpContext.Session.SetString("cart", str);
             }
         }
+
+      
     }
 }

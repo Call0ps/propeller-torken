@@ -1,18 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using PropellerTorkenMain.Services;
 using PropellerTorkenMain.Data;
+using PropellerTorkenMain.Hubs;
 using PropellerTorkenMain.Models.Database;
+using PropellerTorkenMain.Services;
 
 namespace PropellerTorkenMain
 {
@@ -56,12 +52,15 @@ namespace PropellerTorkenMain
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHub<OrderHub>("/orderHub");
             });
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSignalR();
+
             services.AddSession();
 
             services.AddSingleton<OrderService>();
@@ -71,9 +70,19 @@ namespace PropellerTorkenMain
             services.AddDbContext<PropellerDataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DataConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
+            services.AddDbContext<PropellerDataContext>(options =>
+                options.UseSqlServer(
+                                       Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddControllersWithViews();
+
+            services.AddDbContext<PropellerDataContext>(options =>
+               options.UseSqlServer(
+                   Configuration.GetConnectionString("DefaultPropellerConnection")));
         }
     }
 }

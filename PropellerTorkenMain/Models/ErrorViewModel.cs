@@ -1,5 +1,3 @@
-using System;
-
 namespace PropellerTorkenMain.Models
 {
     public class ErrorViewModel
