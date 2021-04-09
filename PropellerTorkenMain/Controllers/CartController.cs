@@ -29,7 +29,24 @@ namespace PropellerTorkenMain.Controllers
             var str = HttpContext.Session.GetString("cart");
             var cart = JsonConvert.DeserializeObject<Cart>(str);
 
+
             return View(cart);
+        }
+
+        public IActionResult DeleteProduct(string productName)
+        {
+            var str = HttpContext.Session.GetString("cart");
+            var cart = JsonConvert.DeserializeObject<Cart>(str);
+
+            var itemToRemove = cart.products.Single(p => p.Name == productName);
+            cart.products.Remove(itemToRemove);
+            cart.GetCartSum();
+
+            str = JsonConvert.SerializeObject(cart);
+            HttpContext.Session.SetString("cart", str);
+            cart = JsonConvert.DeserializeObject<Cart>(str);
+
+            return View("Index", cart);
         }
 
         public IActionResult IncrementQtyForProduct(string productName)
@@ -85,5 +102,7 @@ namespace PropellerTorkenMain.Controllers
 
             return JsonConvert.DeserializeObject<Cart>(str);
         }
+
+
     }
 }

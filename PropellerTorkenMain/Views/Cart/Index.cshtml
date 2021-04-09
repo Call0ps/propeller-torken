@@ -49,9 +49,14 @@
                                 <img src="minus.svg" alt="" />
                             </div>
 
-                            <div 
-                                 class="total-price">@item.Price SEK
+                            <div class="total-price">
+                                @item.Price SEK
                             </div>
+
+                            <div class="total-price"> 
+                                 @Html.ActionLink("delete", "DeleteProduct", "Cart", new { productName = item.Name})
+                            </div>
+
                         </div>
                     }
 
