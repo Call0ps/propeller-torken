@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 #nullable disable
 
@@ -9,14 +8,13 @@ namespace PropellerTorkenMain.Models.Database
     {
         public Product()
         {
-            Orders = new HashSet<Order>();
+            ProductsInOrders = new HashSet<ProductsInOrder>();
         }
 
         public int Id { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
+        public virtual ICollection<ProductsInOrder> ProductsInOrders { get; set; }
         public int Qty { get; set; }
-
-        public virtual ICollection<Order> Orders { get; set; }
     }
 }

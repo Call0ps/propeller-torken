@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using PropellerTorkenMain.Models;
+using System.Diagnostics;
 
 namespace PropellerTorkenMain.Controllers
 {
@@ -19,18 +14,6 @@ namespace PropellerTorkenMain.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        //Bara test
-        [Authorize(Roles = "Admin")]
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
         public IActionResult Contact()
         {
             return View();
@@ -40,6 +23,16 @@ namespace PropellerTorkenMain.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
         }
     }
 }

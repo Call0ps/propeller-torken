@@ -1,27 +1,33 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using PropellerTorkenMain.Models;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using PropellerTorkenMain.Models.Database;
 using PropellerTorkenMain.Services;
-using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
 
 namespace PropellerTorkenMain.Controllers
 {
     public class AdminController : Controller
     {
-        private OrderService OrderService { get; set; }
+        private PropellerDataContext _ctx = new PropellerDataContext();
+
         public AdminController(OrderService orderService)
         {
             OrderService = orderService;
         }
 
+        public List<Order> orderList { get; set; }
 
-
-        public IActionResult Index()
+        private OrderService OrderService { get; set; }
+        [Authorize(Roles = "Admin")]
+        public IActionResult AdminContact()
         {
             return View();
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult AdminOrders()
+        {
+            var orders = OrderService.GetOrders();
+            return View(orders);
         }
         [Authorize(Roles = "Admin")]
         public IActionResult Adminpage()
@@ -29,66 +35,29 @@ namespace PropellerTorkenMain.Controllers
             return View();
         }
         [Authorize(Roles = "Admin")]
-        public IActionResult AdminOrders()
-        {
-            
-
-            return View(OrderService);
-        }
-        [Authorize(Roles = "Admin")]
         public IActionResult AdminSent()
         {
-            return View(OrderService);
+            var orders = OrderService.GetOrders("SENT");
+            return View(orders);
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult Delete(int id)
+        {
+            OrderService.RemoveItemFromList(id);
+
+            return RedirectToAction("AdminOrders");
         }
 
-        [Authorize(Roles = "Admin")]
-        public IActionResult AdminContact()
+        public IActionResult Index()
         {
             return View();
         }
-
-        public IActionResult Delete(int id, OrderService os)
+        [Authorize(Roles = "Admin")]
+        public IActionResult Send(int id)
         {
-            os.CurrentOrderList = OrderService.CurrentOrderList;
-            os.CurrentOrderList.Remove(os.CurrentOrderList.FirstOrDefault(t => t.Id == id));
-            OrderService.CurrentOrderList = os.CurrentOrderList;
-            
+            OrderService.SetStatusToSent(id);
 
-            return View("AdminOrders", os);
-
-            
-
+            return View("AdminOrders");
         }
-
-        public IActionResult Send(int id, OrderService os)
-        {
-            os.CurrentOrderList = OrderService.CurrentOrderList;
-            os.SentOrderList = OrderService.SentOrderList;
-            os.SentOrderList.Add(os.CurrentOrderList.FirstOrDefault(c => c.Id == id));
-            os.CurrentOrderList.Remove(os.CurrentOrderList.FirstOrDefault(t => t.Id == id));
-            OrderService.CurrentOrderList = os.CurrentOrderList;
-            OrderService.SentOrderList = os.SentOrderList;
-
-
-            return View("AdminOrders", os);
-
-
-
-        }
-
-        //[HttpPost]
-        //public IActionResult AdminOrders(OrderService os)
-        //{
-        //    return View(os);
-        //}
-
-        //[HttpPost]
-        //public IActionResult AdminSent(OrderService os)
-        //{
-        //    return View(os);
-        //}
-
     }
-
-
 }

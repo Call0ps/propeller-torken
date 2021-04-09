@@ -7,13 +7,17 @@ namespace PropellerTorkenMain.Models.Database
 {
     public partial class Order
     {
+        public Order()
+        {
+            ProductsInOrders = new HashSet<ProductsInOrder>();
+        }
+
         public DateTime Date { get; set; }
         public int Id { get; set; }
-        public int OurCustomer { get; set; } // customerID
-        public int OurProduct { get; set; } // productID
+        public string OrderStatus { get; set; }
         public int OrderSum { get; set; }
-
+        public int OurCustomer { get; set; }
         public virtual Customer OurCustomerNavigation { get; set; }
-        public virtual Product OurProductNavigation { get; set; }
+        public virtual ICollection<ProductsInOrder> ProductsInOrders { get; set; }
     }
 }

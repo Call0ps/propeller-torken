@@ -278,7 +278,7 @@ body {
     flex-direction: column;
 }
 
-.customerinfo-cart-label{
+.customerinfo-cart-label {
     font-size: 14px;
 }
 
@@ -430,16 +430,14 @@ input:focus {
 
 /* Shopping-bag end*/
 
-
-
-    /*Pop-up button
+/*Pop-up button
 ---------------------------------------------------/
 / Popup container /*/
-    .popup {
-        position: relative;
-        display: inline-block;
-        cursor: pointer;
-    }
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
 
     /*  / The actual popup (appears on top) /*/
     .popup .popuptext {
@@ -546,9 +544,7 @@ input:focus {
 #currentorderlist {
     border-style: solid;
     border-width: medium;
-    background-color:white;
-    table-layout: fixed;
-    
+    background-color: white;
 }
 
 #sentorderlist {
@@ -591,15 +587,7 @@ input:focus {
     cursor: pointer;
     opacity: 0.9;
     font-weight: bold;
-    font-size:50px;
-    width:500px;
-    height:400px;
-    display:inline-block;
-}
-#loginbtnimg {
-    width: 600px;
-    height: 400px;
-    display: inline-block;
+    width: auto;
 }
 
 #logopic {
@@ -615,41 +603,44 @@ input:focus {
     opacity: 1;
 }
 
-
-#propellerkepsbildenlink:visited{
-    color:black;
+#propellerkepsbildenlink:visited {
+    color: black;
 }
+
 #propellerkepsbildenlink:hover {
     color: grey;
 }
-#torktumlarbildenlink:visited{
+
+#torktumlarbildenlink:visited {
     color: black;
 }
-#torktumlarbildenlink:hover{
+
+#torktumlarbildenlink:hover {
     color: grey;
 }
-#propellerbilden:hover{
+
+#propellerbilden:hover {
     opacity: 0.8;
 }
-#torkbilden:hover{
+
+#torkbilden:hover {
     opacity: 0.8;
 }
 
 #productAlternative {
-  
 }
 
 .productItem {
-
-    position:center;
-    display:block;
+    position: center;
+    display: block;
     margin: 0 auto;
-    float:left;
+    float: left;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    padding-left:50px;
+    padding-left: 50px;
 }
+
 .contactBox {
     width: 370px;
     height: 460px;
@@ -659,8 +650,8 @@ input:focus {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    
 }
+
 .titleTitle {
     height: 60px;
     border-bottom: 1px solid #E1E8EE;
@@ -669,44 +660,29 @@ input:focus {
     font-size: 18px;
     font-weight: 400;
 }
+
 .contactBox-label {
     font-size: 24px;
-    font-weight:bolder;
+    font-weight: bolder;
     color: black;
 }
+
 .contactBoxPic {
     padding-top: 15px;
     padding-bottom: 10px;
 }
-.productkepsboxfront {
-    width: 200px;
-    height: 300px;
-    margin: 10px auto;
-    background: #FFFFFF;
-    box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
-    border-radius: 10px;
-    /*display: flex;
-    flex-direction: column;*/
-}
-.producttorkbox {
-    width: 200px;
-    height: 300px;
-    margin: 10px auto;
-    background: #FFFFFF;
-    box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
-    border-radius: 10px;
-    /*display: flex;
-    flex-direction: column;*/
-}
+
 .propellerBoxPic {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+
 .torkBoxPic {
     padding-top: 20px;
     padding-bottom: 20px;
 }
-.productkepsbox {
+
+.productbox {
     width: 350px;
     height: 450px;
     margin: 20px auto;
@@ -715,33 +691,9 @@ input:focus {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-  
-}
-.propellerFirstPic {
-    padding-top: 15px;
-    padding-bottom: 10px;
+      padding-top: 30px;
 }
 
-.propellerSecPic {
-    padding-top: 15px;
-    padding-bottom: 10px;
-}
-
-
-.propellerThirdPic {
-    padding-top: 15px;
-    padding-bottom: 10px;
-}
-.torkbox {
-    width: 350px;
-    height: 450px;
-    margin: 10px auto;
-    background: #FFFFFF;
-    box-shadow: 3px 4px 5px 1px rgba(0,0,0,0.10);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-}
 .torkPic {
     padding-top: 15px;
     padding-bottom: 10px;
@@ -791,5 +743,6 @@ input:focus {
         transform: translate(1px, -2px) rotate(-1deg);
     }
 }
+
 
 

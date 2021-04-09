@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 
 #nullable disable
 
@@ -17,10 +15,10 @@ namespace PropellerTorkenMain.Models.Database
         {
         }
 
-        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<ProductsInOrder> ProductsInOrders { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -34,17 +32,6 @@ namespace PropellerTorkenMain.Models.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Finnish_Swedish_CI_AS");
-
-            modelBuilder.Entity<Admin>(entity =>
-            {
-                entity.ToTable("Admin");
-
-                entity.Property(e => e.IsAdmin).HasColumnName("isAdmin");
-
-                entity.Property(e => e.Password).IsRequired();
-
-                entity.Property(e => e.Username).IsRequired();
-            });
 
             modelBuilder.Entity<Customer>(entity =>
             {
@@ -72,17 +59,30 @@ namespace PropellerTorkenMain.Models.Database
                     .HasForeignKey(d => d.OurCustomer)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Orders_Customer");
-
-                entity.HasOne(d => d.OurProductNavigation)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.OurProduct)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Orders_Products");
             });
 
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.Property(e => e.Name).IsRequired();
+            });
+
+            modelBuilder.Entity<ProductsInOrder>(entity =>
+            {
+                entity.HasKey(e => new { e.ProductId, e.OrderId });
+
+                entity.ToTable("ProductsInOrder");
+
+                entity.HasOne(d => d.Order)
+                    .WithMany(p => p.ProductsInOrders)
+                    .HasForeignKey(d => d.OrderId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ProductsInOrder_Orders");
+
+                entity.HasOne(d => d.Product)
+                    .WithMany(p => p.ProductsInOrders)
+                    .HasForeignKey(d => d.ProductId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ProductsInOrder_Products");
             });
 
             OnModelCreatingPartial(modelBuilder);

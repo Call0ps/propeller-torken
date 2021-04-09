@@ -1,4 +1,4 @@
-﻿@model PropellerTorkenMain.Services.OrderService
+﻿@model List<PropellerTorkenMain.Models.Database.Order>
 @{
     ViewData["Title"] = "AdministratorOrders";
     Layout = "~/Views/Shared/_Adminlayout.cshtml";
@@ -7,54 +7,24 @@
 <h1>HÄR SKA ORDRAR VISAS</h1>
 <div id="currentOrders">
     <h2>Nuvarande ordrar</h2>
-    <div  id="currentorderlist">
+    <div class="table table-striped" id="currentorderlist">
 
         @if (Model != null)
         {
-            <ul>
-                @foreach (var orders in Model.CurrentOrderList)
+            <table>
+
+                @foreach (var items in Model)
                 {
-                <li>
-                    <div>
-                        @orders.OurCustomer.FirstName
+                    <tr>
 
-                        @foreach (var items in orders.OurProduct)
-                        {
-                            <span>@items.Name @items.Price</span>
+                        <td>  @items.Id  </td>
+                        <td>  @items.Date  </td>
+                        <td> <button class="btn btn-info" type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = items.Id, os = Model})'">Skicka </button>   </td>
+                        <td> <button class=" btn btn-danger" type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = items.Id, os = Model})'">Ta bort</button> </td>
+                    </tr>
 
-                        } @orders.Date
-
-                        <div>
-                            <button class="btn btn-info" type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = orders.Id, os = Model})'">Skicka </button>
-                            <button class=" btn btn-danger" type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = orders.Id, os = Model})'">Ta bort</button>
-                        </div>
-                    </div>
-                </li>
-                    @*@Html.ActionLink("Delete", "DeleteFromList", new { ListNumber = orders.Id })*@
                 }
-            </ul>
+            </table>
         }
     </div>
 </div>
-
-@*<td>
-    <form method="post" action="~/Views/Admin/AdminSent.cshtml">
-        @if (Model != null)
-        {
-            foreach (var orders in Model.CurrentOrderList)
-            {
-                <ul>
-                    <li>
-                        @orders.OurCustomer.FirstName
-                        @foreach (var items in orders.OurProduct)
-                        {
-                            @items.Name @items.Price
-                        } @orders.Date
-                        <input type="checkbox" />
-                    </li>
-                </ul>
-            }
-
-        }
-    </form>
-    </td>*@
