@@ -1,0 +1,199 @@
+﻿@model PropellerTorkenMain.Models.Cart
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "CartPage";
+    Layout = "../Shared/_Layout.cshtml";
+
+}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col" id="CartList">
+
+            <div class="shopping-cart">
+                <!-- Title -->
+                <div class="title">
+                    Shopping Bag
+                </div>
+
+
+                <div>
+                        <div class="item">
+                            <p>The cart is empty</p>
+                        </div>
+                }
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="customerinfo-cart" id="CustomerInfo">
+
+            <form method="post">
+
+                <div class="title">
+                    Kunduppgifter
+                </div>
+
+                <div align="center">
+                    <label class="customerinfo-cart-label">Förnamn:</label><br />
+                    <input type="text" name="firstName" id="firstName" required placeholder="Ditt förnamn..." />
+                </div>
+                <div align="center">
+                    <label class="customerinfo-cart-label">Efternamn:</label><br />
+                    <input type="text" name="lastName" id="lastName" required placeholder="Ditt efternamn..." />
+                </div>
+                <div align="center">
+                    <label class="customerinfo-cart-label">Gatuadress:</label><br />
+                    <input type="text" name="street" id="street" required placeholder="Din postadress..." />
+                </div>
+                <div align="center">
+                    <label class="customerinfo-cart-label">Postnummer:</label><br />
+                    <input type="text" name="zipCode" id="zipCode" required placeholder="Ditt postnummer..." />
+                </div>
+                <div align="center">
+                    <label class="customerinfo-cart-label">Postort:</label><br />
+                    <input type="text" name="city" id="city" required placeholder="Din postort ..." />
+                </div>
+                <div align="center">
+                    <label class="customerinfo-cart-label">Telefonnummer:</label><br />
+                    <input type="text" name="phoneNumber" id="phoneNumber" required placeholder="Ditt telefonnummer..." />
+                </div>
+                <div align="center">
+                    <label class="customerinfo-cart-label">Email:</label><br />
+                    <input type="text" name="email" id="email" required placeholder="Din email..." />
+                </div><br />
+
+                <div class="d-flex justify-content-center">
+                    @*byt type till submit när webApi är klart*@
+                    <button class="btn btn-success popup" type="button" onclick="myFunction()" name="CustomerInfoSubmit" id="CustomerConfirmButton" value="Bekräfta"><span id="confirm">Bekräfta</span><span class="popuptext" id="myPopup">Order registrerad</span></button><br />
+
+
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    var button = document.getElementById("CustomerConfirmButton");
+
+
+    // Disable the button on initial page load
+    button.disabled = true;
+
+    var boolFirstName = false;
+    var boolLastName = false;
+    var boolStreet = false;
+    var boolZipCode = false;
+    var boolCity = false;
+    var boolPhoneNumber = false;
+    var boolEmail = false;
+
+    const firstName = document.getElementById("firstName");
+
+    firstName.addEventListener("change", function () {
+        if (firstName.validity.typeMismatch) {
+            firstName.setCustomValidity("Fyll i förnamn!");
+        }
+        else {
+            firstName.setCustomValidity("");
+            boolFirstName = true;
+        }
+    });
+
+    const lastName = document.getElementById("lastName");
+
+    lastName.addEventListener("change", function () {
+        if (lastName.validity.typeMismatch) {
+            lastName.setCustomValidity("Fyll i efternamn!");
+        }
+        else {
+            lastName.setCustomValidity("");
+            boolLastName = true;
+        }
+    });
+
+    const street = document.getElementById("street");
+
+    street.addEventListener("change", function () {
+        if (street.validity.typeMismatch) {
+            street.setCustomValidity("Fyll i din gatuadress!");
+        }
+        else {
+            street.setCustomValidity("");
+            boolStreet = true;
+        }
+    });
+
+    const zipCode = document.getElementById("zipCode");
+
+    zipCode.addEventListener("change", function () {
+        if (zipCode.validity.typeMismatch) {
+            zipCode.setCustomValidity("Fyll i ditt postnummer!");
+        }
+        else {
+            zipCode.setCustomValidity("");
+            boolZipCode = true;
+        }
+    });
+
+    const city = document.getElementById("city");
+
+    city.addEventListener("change", function () {
+        if (city.validity.typeMismatch) {
+            city.setCustomValidity("Fyll i din postort!");
+        }
+        else {
+            city.setCustomValidity("");
+            boolCity = true;
+        }
+    });
+
+    const phoneNumber = document.getElementById("phoneNumber");
+
+    phoneNumber.addEventListener("change", function () {
+        if (phoneNumber.validity.typeMismatch) {
+            phoneNumber.setCustomValidity("Fyll i ditt telefonnummer!");
+        }
+        else {
+            phoneNumber.setCustomValidity("");
+            boolPhoneNumber = true;
+        }
+    });
+
+    const email = document.getElementById("email");
+
+    email.addEventListener("change", function () {
+        if (email.validity.typeMismatch) {
+            email.setCustomValidity("Fyll i din email-adress!");
+        }
+        else {
+            email.setCustomValidity("");
+            boolEmail = true;
+            if (boolFirstName && boolLastName && boolStreet && boolZipCode && boolCity && boolPhoneNumber && boolEmail) {
+                button.disabled = false;
+
+            }
+
+        }
+    });
+    function myFunction() {
+        var popup = document.getElementById("myPopup");
+        popup.style.display = "block";
+        document.getElementById("confirm").textContent = "";
+        popup.classList += "show";
+
+
+    }
+
+</script>

@@ -22,6 +22,10 @@ namespace PropellerTorkenMain.Controllers
         }
         public IActionResult Index()
         {
+            if (HttpContext.Session.GetString("cart") == null)
+            {
+                return View("IndexEmpty");
+            }
             var str = HttpContext.Session.GetString("cart");
             var cart = JsonConvert.DeserializeObject<Cart>(str);
 
