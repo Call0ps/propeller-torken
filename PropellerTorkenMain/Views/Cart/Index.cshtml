@@ -33,26 +33,26 @@
                             </div>
 
                             <div class="image">
-                                @*<img src="~/images/circle-cropped (3).png" width="100" height="100" class="inCartImage"/>*@
+                           
                                 @if (item.Name.Contains("Torktumlare"))
                                 {
-                                    <img src="~/images/svartTorktumlare.png" width="100" height="100" class="inCartTorkImage" />
+                                    <img src="~/images/svartTorktumlare.png" width="100" height="100" class="inCartTorkImage"/>
                                 }
-                               
+
                                 else
                                 {
-                                    <img src="~/images/circle-cropped (3).png" width="100" height="100" class="inCartImage" />
+                                    
+                                    <img src="~/images/Calleintebrednomore.png" width="100" height="100" class="inCartImage"/>
                                 }
 
                             </div>
 
                             <div class="description">
-                                <span>@item.Name</span>
-                                <span>Begagnad</span>
-                                <span>Vit</span>
+                                <span style="font-weight:bold">@item.Name</span>
+                             
                             </div>
 
-                            <div class="quantity">
+                            <div class="quantity" style="font-weight:bold">
                                 @Html.ActionLink("-", "DecrementQtyForProduct", "Cart", new { productName = item.Name })
                                 <img src="plus.svg" alt="" />
 
@@ -62,14 +62,14 @@
                                 <img src="minus.svg" alt="" />
                             </div>
 
-                            <div class="total-price">
+                            <div class="total-price" style="font-weight:bold">
                                 @item.Price SEK
                             </div>
 
                             <div class="total-price" style="font-weight:bold">
                                     @*@Html.ActionLink("Delete", "DeleteProduct", "Cart", new { productName = item.Name })*@
 
-                                <div class="d-flex justify-content-centerp">
+                                <div class="d-flex justify-content-center">
                                     <a href="@Url.Action("DeleteProduct", "Cart", new {productName = item.Name})" class="btn">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash align-text-top" viewBox="0 0 15 15">
                                             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
@@ -86,7 +86,7 @@
                     
 
                     <div align="right" style="padding: 20px; font-weight:bold;">
-                        <p style="border:double">Total belopp: @Model.CartSum SEK</p>
+                        <p style="border-block-style:ridge">Total belopp: @Model.CartSum SEK</p>
                     </div>
 
                 </div>
