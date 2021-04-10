@@ -53,6 +53,7 @@ namespace PropellerTorkenMain
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
                 endpoints.MapHub<OrderHub>("/orderHub");
+                endpoints.MapHub<NotificationHub>("/notificationHub");
             });
         }
 
