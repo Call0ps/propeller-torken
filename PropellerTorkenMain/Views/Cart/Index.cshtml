@@ -3,7 +3,8 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{ ViewData["Title"] = "CartPage";
-    Layout = "../Shared/_Layout.cshtml"; }
+    Layout = "../Shared/_Layout.cshtml";
+}
 <link href="~/css/cart.css" rel="stylesheet" type="text/css">
 
 <style>
@@ -22,7 +23,7 @@
                 </div>
                 @if (Model.Products.Count == 0)
                 {
-    <div class="item"><p>The cart is empty</p></div>}
+                    <div class="item"><p>The cart is empty</p></div>}
                 <div>
                     @foreach (var item in Model.Products)
                     {
@@ -181,7 +182,7 @@
     //        }
 
     //    }
-  /*  });*/
+    /*  });*/
     function myFunction() {
         var popup = document.getElementById("myPopup");
         popup.style.display = "block";

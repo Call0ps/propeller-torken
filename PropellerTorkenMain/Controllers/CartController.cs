@@ -106,9 +106,16 @@ namespace PropellerTorkenMain.Controllers
             OrderService orderService = new();
             CustomerService customerService = new();
             CartService cartService = new(cart);
-            var orderNo = cartService.CreateOrder();
-            var order = orderService.GetOrderById(orderNo).Single<Order>();
-            return View("OrderComplete", order);
+            try
+            {
+                var orderNo = cartService.CreateOrder();
+                var order = orderService.GetOrderById(orderNo).Single<Order>();
+                return View("OrderComplete", order);
+            }
+            catch (Exception)
+            {
+                return View("CartError");
+            }
         }
 
         private Cart GetCart()
