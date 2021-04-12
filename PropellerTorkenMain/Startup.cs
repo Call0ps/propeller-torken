@@ -67,7 +67,7 @@ namespace PropellerTorkenMain
             services.AddDbContext<ApplicationDbContext>(options =>
                options.UseSqlServer(
                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDbContext<PropellerDataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DataConnection")));
+            services.AddDbContext<PropellerDataContext>(options => options.UseLazyLoadingProxies().UseSqlServer(Configuration.GetConnectionString("DataConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDbContext<PropellerDataContext>(options =>

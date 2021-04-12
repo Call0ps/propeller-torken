@@ -9,6 +9,7 @@ namespace PropellerTorkenMain.Services
     public class OrderService
     {
         public PropellerDataContext ctx = new PropellerDataContext();
+        public Models.Database.Customer newCust { get; set; }
 
         public OrderService()
         {
@@ -59,9 +60,16 @@ namespace PropellerTorkenMain.Services
 
         public List<Order> GetOrders(string orderStatus = null)
         {
-            var orders = ctx.Orders.Include(o => o.OurCustomerNavigation).Where(o => o.OrderStatus == orderStatus);
+            var orders = ctx.Orders.Where(o => o.OrderStatus == orderStatus).Include(o => o.OurCustomerNavigation);
 
-            return orders.ToList();
+            List<Order> result = orders.ToList();
+
+            foreach (var order in result)
+            {
+                order.OurCustomerNavigation = ctx.Customers.FirstOrDefault(c => c.CustomerId == order.OurCustomer);
+            }
+
+            return result;
             //return null;
         }
 
