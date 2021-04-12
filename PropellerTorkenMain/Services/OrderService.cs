@@ -60,14 +60,22 @@ namespace PropellerTorkenMain.Services
         public List<Order> GetOrders(string orderStatus = null)
         {
 
-            var orders = ctx.Orders.Where(o => o.OrderStatus == orderStatus).Include(o => o.OurCustomerNavigation);
+            var orders = ctx.Orders.Where(o => o.OrderStatus == orderStatus).Include(o => o.OurCustomerNavigation).Include(o => o.ProductsInOrders)
+                .Include(o => o.ProductsInOrders);
 
             List<Order> result = orders.ToList();
 
             foreach (var order in result)
             {
                 order.OurCustomerNavigation = ctx.Customers.FirstOrDefault(c => c.CustomerId == order.OurCustomer);
+                order.ProductsInOrders = ctx.ProductsInOrders.Where(o => o.OrderId == order.Id).Include(o => o.Product).ToList();
+                foreach(var product in order.ProductsInOrders)
+                {
+                    product.Product = ctx.Products.FirstOrDefault(p => p.Id == product.ProductId);
+                }
             }
+
+
 
             return result;
             //var orders = ctx.Orders.Include(o => o.OurCustomerNavigation).Where(o => o.OrderStatus == orderStatus);
@@ -75,6 +83,13 @@ namespace PropellerTorkenMain.Services
             //return orders.ToList();
             //return null;
         }
+
+        //public List<Order> GetProductsInOrders()
+        //{
+        //    var orders = ctx.Orders.Where(o => o.ProductsInOrders)
+
+        //    List<Order> result = 
+        //}
 
         public void RemoveItemFromList(int id)
         {

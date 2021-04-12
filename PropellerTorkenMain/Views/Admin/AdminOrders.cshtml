@@ -11,20 +11,40 @@
 
         @if (Model != null)
         {
-            <table>
+        <table>
+            <tr>
+                <th>OrderId</th>
+                <th>CustomerId</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Products</th>
+            </tr>
+            @foreach (var items in Model)
+            {
 
-                @foreach (var items in Model)
-                {
-                    <tr>
+        <tr>
 
-                        <td>  @items.Id  </td>
-                        <td>  @items.Date  </td>
-                        <td> <button class="btn btn-info" type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = items.Id, os = Model})'">Skicka </button>   </td>
-                        <td> <button class=" btn btn-danger" type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = items.Id, os = Model})'">Ta bort</button> </td>
-                    </tr>
+            <td>  @items.Id  </td>
+            <td>  @items.OurCustomer  </td>
+            <td>  @items.OurCustomerNavigation.Firstname  </td>
+            <td>  @items.OurCustomerNavigation.Lastname  </td>
+            
+            
+            @*<td> @items.ProductsInOrders.ToList().ForEach(p => p.Product)  </td>*@
+        <td>
+            @foreach (var o in items.ProductsInOrders.ToList())
+            {
 
-                }
-            </table>
+            <span> @o.Product.Name </span>
+
+            }
+        </td>
+            <td> <button class="btn btn-info" type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = items.Id, os = Model})'">Skicka </button>   </td>
+            <td> <button class=" btn btn-danger" type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = items.Id, os = Model})'">Ta bort</button> </td>
+        </tr>
+
+            }
+        </table>
         }
     </div>
 </div>
