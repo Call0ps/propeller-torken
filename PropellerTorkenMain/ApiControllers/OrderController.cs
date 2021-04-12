@@ -2,6 +2,7 @@
 using PropellerTorkenMain.Models.Database;
 using PropellerTorkenMain.Services;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace PropellerTorkenMain.ApiControllers
 {
@@ -16,7 +17,7 @@ namespace PropellerTorkenMain.ApiControllers
         }
 
         [HttpPost]
-        public string CreateOrder(int customerId, int orderSum)
+        public int CreateOrder(int customerId, int orderSum)
         {
             return os.AddOrder(customerId, orderSum);
         }
