@@ -125,21 +125,6 @@ namespace PropellerTorkenMain.Controllers
             return cart;
         }
 
-        //public Cart IncrementQty(string productname)
-        //{
-        //    var str = HttpContext.Session.GetString("cart");
-        //    var cart = JsonConvert.DeserializeObject<Cart>(str);
-
-        //    if (cart.products.Any(product => product.Name == productname))
-        //    {
-        //        cart.products.Find(product => product.Name == productname).Qty++;
-        //        cart.GetCartSum();
-        //    }
-
-        //    str = JsonConvert.SerializeObject(cart);
-        //    HttpContext.Session.SetString("cart", str);
-
-        //    return JsonConvert.DeserializeObject<Cart>(str);
-        //}
+     
     }
 }

@@ -12,7 +12,7 @@ namespace PropellerTorkenMain.Services
 
         public OrderService()
         {
-            //CurrentOrderList = ctx.Orders.ToList();
+            
         }
 
         public List<Order> CurrentOrderList { get; set; }
@@ -78,18 +78,10 @@ namespace PropellerTorkenMain.Services
 
 
             return result;
-            //var orders = ctx.Orders.Include(o => o.OurCustomerNavigation).Where(o => o.OrderStatus == orderStatus);
-
-            //return orders.ToList();
-            //return null;
+           
         }
 
-        //public List<Order> GetProductsInOrders()
-        //{
-        //    var orders = ctx.Orders.Where(o => o.ProductsInOrders)
-
-        //    List<Order> result = 
-        //}
+      
 
         public void RemoveItemFromList(int id)
         {
@@ -115,10 +107,6 @@ namespace PropellerTorkenMain.Services
             ctx.SaveChanges();
         }
 
-        //public void List<SentOrder> GetAllSentOrders()
-        //{
-        //    return ctx.SentOrders.ToList();
-
-        //}
+       
     }
 }
