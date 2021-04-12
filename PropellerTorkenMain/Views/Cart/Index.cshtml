@@ -70,7 +70,7 @@
                 @Html.TextBoxFor(m => m.Customer.PhoneNr)
             </div>
             <div class="d-flex justify-content-center">
-                <button class="btn btn-success" type="submit">
+                <button class="btn btn-success" id="CustomerConfirmButton" type="submit">
                     <span id="confirm">Bekräfta</span>
                 </button>
             </div>
@@ -84,104 +84,104 @@
     var button = document.getElementById("CustomerConfirmButton");
 
     // Disable the button on initial page load
-    button.disabled = true;
+    //button.disabled = true;
 
-    var boolFirstName = false;
-    var boolLastName = false;
-    var boolStreet = false;
-    var boolZipCode = false;
-    var boolCity = false;
-    var boolPhoneNumber = false;
-    var boolEmail = false;
+    //var boolFirstName = false;
+    //var boolLastName = false;
+    //var boolStreet = false;
+    //var boolZipCode = false;
+    //var boolCity = false;
+    //var boolPhoneNumber = false;
+    //var boolEmail = false;
 
-    const firstName = document.getElementById("firstName");
+    //const firstName = document.getElementById("firstName");
 
-    firstName.addEventListener("change", function () {
-        if (firstName.validity.typeMismatch) {
-            firstName.setCustomValidity("Fyll i förnamn!");
-        }
-        else {
-            firstName.setCustomValidity("");
-            boolFirstName = true;
-        }
-    });
+    //firstName.addEventListener("change", function () {
+    //    if (firstName.validity.typeMismatch) {
+    //        firstName.setCustomValidity("Fyll i förnamn!");
+    //    }
+    //    else {
+    //        firstName.setCustomValidity("");
+    //        boolFirstName = true;
+    //    }
+    //});
 
-    const lastName = document.getElementById("lastName");
+    //const lastName = document.getElementById("lastName");
 
-    lastName.addEventListener("change", function () {
-        if (lastName.validity.typeMismatch) {
-            lastName.setCustomValidity("Fyll i efternamn!");
-        }
-        else {
-            lastName.setCustomValidity("");
-            boolLastName = true;
-        }
-    });
+    //lastName.addEventListener("change", function () {
+    //    if (lastName.validity.typeMismatch) {
+    //        lastName.setCustomValidity("Fyll i efternamn!");
+    //    }
+    //    else {
+    //        lastName.setCustomValidity("");
+    //        boolLastName = true;
+    //    }
+    //});
 
-    const street = document.getElementById("street");
+    //const street = document.getElementById("street");
 
-    street.addEventListener("change", function () {
-        if (street.validity.typeMismatch) {
-            street.setCustomValidity("Fyll i din gatuadress!");
-        }
-        else {
-            street.setCustomValidity("");
-            boolStreet = true;
-        }
-    });
+    //street.addEventListener("change", function () {
+    //    if (street.validity.typeMismatch) {
+    //        street.setCustomValidity("Fyll i din gatuadress!");
+    //    }
+    //    else {
+    //        street.setCustomValidity("");
+    //        boolStreet = true;
+    //    }
+    //});
 
-    const zipCode = document.getElementById("zipCode");
+    //const zipCode = document.getElementById("zipCode");
 
-    zipCode.addEventListener("change", function () {
-        if (zipCode.validity.typeMismatch) {
-            zipCode.setCustomValidity("Fyll i ditt postnummer!");
-        }
-        else {
-            zipCode.setCustomValidity("");
-            boolZipCode = true;
-        }
-    });
+    //zipCode.addEventListener("change", function () {
+    //    if (zipCode.validity.typeMismatch) {
+    //        zipCode.setCustomValidity("Fyll i ditt postnummer!");
+    //    }
+    //    else {
+    //        zipCode.setCustomValidity("");
+    //        boolZipCode = true;
+    //    }
+    //});
 
-    const city = document.getElementById("city");
+    //const city = document.getElementById("city");
 
-    city.addEventListener("change", function () {
-        if (city.validity.typeMismatch) {
-            city.setCustomValidity("Fyll i din postort!");
-        }
-        else {
-            city.setCustomValidity("");
-            boolCity = true;
-        }
-    });
+    //city.addEventListener("change", function () {
+    //    if (city.validity.typeMismatch) {
+    //        city.setCustomValidity("Fyll i din postort!");
+    //    }
+    //    else {
+    //        city.setCustomValidity("");
+    //        boolCity = true;
+    //    }
+    //});
 
-    const phoneNumber = document.getElementById("phoneNumber");
+    //const phoneNumber = document.getElementById("phoneNumber");
 
-    phoneNumber.addEventListener("change", function () {
-        if (phoneNumber.validity.typeMismatch) {
-            phoneNumber.setCustomValidity("Fyll i ditt telefonnummer!");
-        }
-        else {
-            phoneNumber.setCustomValidity("");
-            boolPhoneNumber = true;
-        }
-    });
+    //phoneNumber.addEventListener("change", function () {
+    //    if (phoneNumber.validity.typeMismatch) {
+    //        phoneNumber.setCustomValidity("Fyll i ditt telefonnummer!");
+    //    }
+    //    else {
+    //        phoneNumber.setCustomValidity("");
+    //        boolPhoneNumber = true;
+    //    }
+    //});
 
-    const email = document.getElementById("email");
+    //const email = document.getElementById("email");
 
-    email.addEventListener("change", function () {
-        if (email.validity.typeMismatch) {
-            email.setCustomValidity("Fyll i din email-adress!");
-        }
-        else {
-            email.setCustomValidity("");
-            boolEmail = true;
-            if (boolFirstName && boolLastName && boolStreet && boolZipCode && boolCity && boolPhoneNumber && boolEmail) {
-                button.disabled = false;
+    //email.addEventListener("change", function () {
+    //    if (email.validity.typeMismatch) {
+    //        email.setCustomValidity("Fyll i din email-adress!");
+    //    }
+    //    else {
+    //        email.setCustomValidity("");
+    //        boolEmail = true;
+    //        if (boolFirstName && boolLastName && boolStreet && boolZipCode && boolCity && boolPhoneNumber && boolEmail) {
+    //            button.disabled = false;
 
-            }
+    //        }
 
-        }
-    });
+    //    }
+  /*  });*/
     function myFunction() {
         var popup = document.getElementById("myPopup");
         popup.style.display = "block";

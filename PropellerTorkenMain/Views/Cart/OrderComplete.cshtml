@@ -2,6 +2,30 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@section Scripts {
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script type="text/javascript">
+
+        "use strict";
+
+        var connection = new signalR.HubConnectionBuilder().withUrl("/orderHub").build();
+
+        connection.start().then(function () {
+            var message = "Det finns en ny order att hantera";
+            connection.invoke("SendMessage", message).catch(function (err) {
+                return console.error(err.toString());
+            });
+        }).catch(function (err) {
+            return console.error(err.toString());
+        });
+
+        
+           
+            /*event.preventDefault();*/
+       
+    </script>
+
+}
 <section>
     <h1>Tack för din order!</h1>
     <h4>Ditt ordernummer är @Model.Id</h4>
