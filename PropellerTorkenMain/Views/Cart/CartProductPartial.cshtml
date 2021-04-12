@@ -8,18 +8,20 @@
         @*<img src="~/images/circle-cropped (3).png" width="100" height="100" class="inCartImage" />*@
         @if (Model.Name.Contains("Torktumlare"))
         {
-            <img src="~/images/svartTorktumlare.png" width="100" height="100" class="inCartTorkImage" /> }
+            <img src="~/images/svartTorktumlare.png" width="70" height="70" class="inCartTorkImage" /> }
 
         else
         {
-            <img src="~/images/circle-cropped (3).png" width="100" height="100" class="inCartImage" />}
+           
+            <img src="~/images/Calleintebrednomore.png" width="70" height="70" class="inCartImage" />
+        }
     </div>
-    <div class="description">
+    <div class="description" style="font-weight:bold">
         <span>@Model.Name</span>
-        <span>Begagnad</span>
-        <span>Vit</span>
+      
+    
     </div>
-    <div class="quantity">
+    <div class="quantity" style="font-weight:bold">
         @Html.ActionLink("-", "DecrementQtyForProduct", "Cart", new { productName = Model.Name })
         <img src="plus.svg" alt="" />
 
@@ -32,7 +34,7 @@
         @Model.Price SEK
     </div>
     <div class="total-price" style="font-weight:bold">
-        <div class="d-flex justify-content-centerp">
+        <div class="d-flex justify-content-center">
             <a href="@Url.Action("DeleteProduct", "Cart", new { productName = Model.Name })" class="btn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-trash align-text-top" viewBox="0 0 15 15">
                     <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
