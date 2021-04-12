@@ -78,6 +78,14 @@ namespace PropellerTorkenMain.Services
 
         public void RemoveItemFromList(int id)
         {
+
+            var listItemFromOrder = ctx.ProductsInOrders.Where(p => p.OrderId == id);
+            foreach (var items in listItemFromOrder)
+            {
+                ctx.ProductsInOrders.Remove(items);
+            }
+            ctx.SaveChanges();
+
             var listItemToRemove = ctx.Orders.FirstOrDefault(p => p.Id == id);
             ctx.Orders.Remove(listItemToRemove);
             ctx.SaveChanges();
