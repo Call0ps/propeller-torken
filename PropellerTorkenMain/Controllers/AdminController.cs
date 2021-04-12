@@ -57,7 +57,7 @@ namespace PropellerTorkenMain.Controllers
         {
             OrderService.SetStatusToSent(id);
 
-            return View("AdminOrders");
+            return View("AdminOrders", OrderService.GetOrders());
         }
     }
 }
