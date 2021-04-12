@@ -70,9 +70,9 @@ namespace PropellerTorkenMain
             services.AddDbContext<PropellerDataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DataConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            services.AddDbContext<PropellerDataContext>(options =>
-                options.UseSqlServer(
-                                       Configuration.GetConnectionString("UserConnection")));
+            //services.AddDbContext<PropellerDataContext>(options =>
+            //    options.UseSqlServer(
+            //                           Configuration.GetConnectionString("UserConnection")));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddRoles<IdentityRole>()
@@ -80,9 +80,9 @@ namespace PropellerTorkenMain
 
             services.AddControllersWithViews();
 
-            services.AddDbContext<PropellerDataContext>(options =>
-               options.UseSqlServer(
-                   Configuration.GetConnectionString("DefaultPropellerConnection")));
+            //    services.AddDbContext<PropellerDataContext>(options =>
+            //       options.UseSqlServer(
+            //           Configuration.GetConnectionString("DefaultPropellerConnection")));
         }
     }
 }

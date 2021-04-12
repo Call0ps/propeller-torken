@@ -11,40 +11,39 @@
 
         @if (Model != null)
         {
-        <table>
-            <tr>
-                <th>OrderId</th>
-                <th>CustomerId</th>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>Products</th>
-            </tr>
-            @foreach (var items in Model)
-            {
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>OrderId</th>
+                    <th>CustomerId</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Products</th>
+                </tr>
+                @foreach (var items in Model)
+                {
 
-        <tr>
+                    <tr>
+                        <td>  @items.Date  </td>
+                        <td>  @items.Id  </td>
+                        <td>  @items.OurCustomer  </td>
+                        <td>  @items.OurCustomerNavigation.Firstname  </td>
+                        <td>  @items.OurCustomerNavigation.Lastname  </td>
 
-            <td>  @items.Id  </td>
-            <td>  @items.OurCustomer  </td>
-            <td>  @items.OurCustomerNavigation.Firstname  </td>
-            <td>  @items.OurCustomerNavigation.Lastname  </td>
-            
-            
-           
-        <td>
-            @foreach (var o in items.ProductsInOrders.ToList())
-            {
+                        <td>
+                            @foreach (var o in items.ProductsInOrders.ToList())
+                            {
 
-            <span> @o.Product.Name </span>
+                                <span> @o.Product.Name </span>
 
-            }
-        </td>
-            <td> <button class="btn btn-info" type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = items.Id, os = Model})'">Skicka </button>   </td>
-            <td> <button class=" btn btn-danger" type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = items.Id, os = Model})'">Ta bort</button> </td>
-        </tr>
+                            }
+                        </td>
+                        <td> <button class="btn btn-info" type="submit" id="AddToSentList" value="Send" onclick="location.href='@Url.Action("Send", "Admin", new { id = items.Id, os = Model})'">Skicka </button>   </td>
+                        <td> <button class=" btn btn-danger" type="submit" id="Remove" value="Delete" onclick="location.href='@Url.Action("Delete", "Admin", new { id = items.Id, os = Model})'">Ta bort</button> </td>
+                    </tr>
 
-            }
-        </table>
+                }
+            </table>
         }
     </div>
 </div>
