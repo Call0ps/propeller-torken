@@ -7,21 +7,23 @@
 
 <div id="sentOrders">
     <h2>Skickade ordrar</h2>
-    <div id="sentorderlist">
+    <div class="table table-striped" id="sentorderlist">
 
         @if (Model != null)
         {
-            <ul>
+            <table>
                 @foreach (var orders in Model)
                 {
-                    <li>
-                        <span>
-                            @orders.Id @orders.Date @orders.OrderStatus @orders.OurCustomerNavigation.Firstname
-                        </span>
-                    </li>
+                <tr>
+                    <td> @orders.Id</td>
+                    <td> @orders.Date</td>
+                    <td>@orders.OurCustomerNavigation.Firstname </td>
+                    <td>@orders.OrderStatus</td>
+                  
+                </tr>
 
                 }
-            </ul>
+            </table>
         }
     </div>
 </div>
