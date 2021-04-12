@@ -5,9 +5,7 @@ using PropellerTorkenMain.Models;
 using PropellerTorkenMain.Models.Database;
 using PropellerTorkenMain.Services;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace PropellerTorkenMain.Controllers
 {
@@ -124,7 +122,5 @@ namespace PropellerTorkenMain.Controllers
             var cart = JsonConvert.DeserializeObject<Cart>(str);
             return cart;
         }
-
-     
     }
 }

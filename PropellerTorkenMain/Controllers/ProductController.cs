@@ -18,7 +18,7 @@ namespace PropellerTorkenMain.Controllers
             pc = new ProductService();
         }
 
-          public IActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
@@ -27,7 +27,8 @@ namespace PropellerTorkenMain.Controllers
         {
             return View();
         }
-          public IActionResult TorkTumlare()
+
+        public IActionResult TorkTumlare()
         {
             return View();
         }

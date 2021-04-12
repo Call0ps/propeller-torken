@@ -340,7 +340,7 @@ body {
         display: block;
         font-size: 14px;
         color: black;
-        font-weight:bold;
+        font-weight: bold;
     }
 
         .description span:first-child {
@@ -368,8 +368,6 @@ body {
         font-weight: 300;
     }
 
-
-
 .minus-btn img {
     margin-bottom: 3px;
 }
@@ -389,7 +387,7 @@ input:focus {
     text-align: center;
     font-size: 14px;
     color: black;
-    font-weight:bold;
+    font-weight: bold;
 }
 
 .cart-total-price {
@@ -423,7 +421,7 @@ input:focus {
         width: auto;
         text-align: center;
         margin: 6px;
-        font-weight:bold;
+        font-weight: bold;
     }
 
     .buttons {
@@ -545,7 +543,7 @@ input:focus {
 }
 
 #currentorderlist {
-    border-style:hidden;
+    border-style: hidden;
     border-width: medium;
     background-color: white;
 }
@@ -695,13 +693,14 @@ input:focus {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-      padding-top: 30px;
+    padding-top: 30px;
 }
 
 .torkPic {
     padding-top: 15px;
     padding-bottom: 10px;
 }
+
 @keyframes shake {
     0% {
         transform: translate(1px, 1px) rotate(0deg);
@@ -747,6 +746,7 @@ input:focus {
         transform: translate(1px, -2px) rotate(-1deg);
     }
 }
+
 .orderComplete {
     width: 500px;
     height: 200px;
@@ -758,6 +758,3 @@ input:focus {
     flex-direction: column;
     padding-top: 30px;
 }
-
-
-

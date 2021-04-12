@@ -12,7 +12,6 @@ namespace PropellerTorkenMain.Services
 
         public OrderService()
         {
-            
         }
 
         public List<Order> CurrentOrderList { get; set; }
@@ -59,7 +58,6 @@ namespace PropellerTorkenMain.Services
 
         public List<Order> GetOrders(string orderStatus = null)
         {
-
             var orders = ctx.Orders.Where(o => o.OrderStatus == orderStatus).Include(o => o.OurCustomerNavigation).Include(o => o.ProductsInOrders)
                 .Include(o => o.ProductsInOrders);
 
@@ -69,23 +67,17 @@ namespace PropellerTorkenMain.Services
             {
                 order.OurCustomerNavigation = ctx.Customers.FirstOrDefault(c => c.CustomerId == order.OurCustomer);
                 order.ProductsInOrders = ctx.ProductsInOrders.Where(o => o.OrderId == order.Id).Include(o => o.Product).ToList();
-                foreach(var product in order.ProductsInOrders)
+                foreach (var product in order.ProductsInOrders)
                 {
                     product.Product = ctx.Products.FirstOrDefault(p => p.Id == product.ProductId);
                 }
             }
 
-
-
             return result;
-           
         }
-
-      
 
         public void RemoveItemFromList(int id)
         {
-
             var listItemFromOrder = ctx.ProductsInOrders.Where(p => p.OrderId == id);
             foreach (var items in listItemFromOrder)
             {
@@ -96,8 +88,6 @@ namespace PropellerTorkenMain.Services
             var listItemToRemove = ctx.Orders.FirstOrDefault(p => p.Id == id);
             ctx.Orders.Remove(listItemToRemove);
             ctx.SaveChanges();
-
-          
         }
 
         public void SetStatusToSent(int id)
@@ -106,7 +96,5 @@ namespace PropellerTorkenMain.Services
             sentItem.OrderStatus = "SENT";
             ctx.SaveChanges();
         }
-
-       
     }
 }

@@ -5,21 +5,19 @@
     </div>
 
     <div class="image">
-       
+
         @if (Model.Name.Contains("Torktumlare"))
         {
             <img src="~/images/svartTorktumlare.png" width="70" height="70" class="inCartTorkImage" /> }
 
         else
         {
-           
+
             <img src="~/images/Calleintebrednomore.png" width="70" height="70" class="inCartImage" />
         }
     </div>
     <div class="description" style="font-weight:bold">
         <span>@Model.Name</span>
-      
-    
     </div>
     <div class="quantity" style="font-weight:bold">
         @Html.ActionLink("-", "DecrementQtyForProduct", "Cart", new { productName = Model.Name })

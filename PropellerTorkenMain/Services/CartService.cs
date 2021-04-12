@@ -39,20 +39,21 @@ namespace PropellerTorkenMain.Services
             {
                 foreach (var prod in products)
                 {
-                    var newRel = new ProductsInOrder
+                    var newRel = new ProductsInOrder()
                     {
                         ProductId = prod.Id,
-                        OrderId = orderNumber
+                        OrderId = orderNumber,
+                        Amount = prod.Qty
                     };
                     ctx.ProductsInOrders.Add(newRel);
-                    ctx.SaveChanges();
                 }
-                return orderNumber;
+                ctx.SaveChanges();
             }
             else
             {
                 return 0;
             }
+            return orderNumber;
         }
 
         public int CreateOrder(List<Product> products, DummyCustomer dummy)
