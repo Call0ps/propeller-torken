@@ -59,9 +59,20 @@ namespace PropellerTorkenMain.Services
 
         public List<Order> GetOrders(string orderStatus = null)
         {
-            var orders = ctx.Orders.Include(o => o.OurCustomerNavigation).Where(o => o.OrderStatus == orderStatus);
 
-            return orders.ToList();
+            var orders = ctx.Orders.Where(o => o.OrderStatus == orderStatus).Include(o => o.OurCustomerNavigation);
+
+            List<Order> result = orders.ToList();
+
+            foreach (var order in result)
+            {
+                order.OurCustomerNavigation = ctx.Customers.FirstOrDefault(c => c.CustomerId == order.OurCustomer);
+            }
+
+            return result;
+            //var orders = ctx.Orders.Include(o => o.OurCustomerNavigation).Where(o => o.OrderStatus == orderStatus);
+
+            //return orders.ToList();
             //return null;
         }
 
