@@ -62,6 +62,9 @@ namespace PropellerTorkenMain
             services.AddSignalR();
 
             services.AddSession();
+            services.AddControllersWithViews().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
 
             services.AddSingleton<OrderService>();
             services.AddDbContext<ApplicationDbContext>(options =>

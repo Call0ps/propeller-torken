@@ -7,7 +7,8 @@ namespace PropellerTorkenMain.Services
 {
     public class CartService
     {
-        private CustomerService customerService = new CustomerService();
+        private readonly CustomerService customerService = new();
+        private readonly OrderService orderService = new();
 
         public CartService(Cart cart)
         {
@@ -59,27 +60,21 @@ namespace PropellerTorkenMain.Services
         public int CreateOrder(List<Product> products, DummyCustomer dummy)
         {
             PropellerDataContext ctx = new();
-            Order order = new();
-            int CustomerId = customerService.AddCustomer(dummy);
-            order.OurCustomer = CustomerId;
-            order.OrderSum = CartSum;
-            order.Date = DateTime.Now;
-            ctx.Orders.Add(order);
-            ctx.SaveChanges();
-
+            Cart.CustomerId = customerService.AddCustomer(dummy);
+            int orderId = orderService.AddOrder(Cart.CustomerId, CartSum);
             foreach (var prod in products)
             {
                 var newRel = new ProductsInOrder
                 {
                     ProductId = prod.Id,
-                    OrderId = order.Id,
+                    OrderId = orderId,
                     Amount = prod.Qty
                 };
                 ctx.ProductsInOrders.Add(newRel);
             }
             ctx.SaveChanges();
 
-            return order.Id;
+            return orderId;
         }
     }
 }
