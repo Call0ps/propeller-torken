@@ -2,6 +2,7 @@
 using PropellerTorkenMain.Models.Database;
 using PropellerTorkenMain.Services;
 using System.Collections.Generic;
+using System.Text.Json;
 
 namespace PropellerTorkenMain.ApiControllers
 {
@@ -32,7 +33,7 @@ namespace PropellerTorkenMain.ApiControllers
         {
             if (int.Equals(id, 0))
             {
-                return os.Get();
+                return os.GetOrders();
             }
             else
             {

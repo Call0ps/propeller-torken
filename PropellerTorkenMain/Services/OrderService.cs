@@ -41,7 +41,7 @@ namespace PropellerTorkenMain.Services
 
         public IEnumerable<Order> Get()
         {
-            return ctx.Orders.ToList();
+            return ctx.Orders.AsEnumerable();
         }
 
         public IEnumerable<Order> GetOrderById(int id)
@@ -56,12 +56,12 @@ namespace PropellerTorkenMain.Services
             }
         }
 
-        public List<Order> GetOrders(string orderStatus = null)
+        public IEnumerable<Order> GetOrders(string orderStatus = null)
         {
             var orders = ctx.Orders.Where(o => o.OrderStatus == orderStatus).Include(o => o.OurCustomerNavigation).Include(o => o.ProductsInOrders)
                 .Include(o => o.ProductsInOrders);
 
-            List<Order> result = orders.ToList();
+            IEnumerable<Order> result = orders.ToList();
 
             foreach (var order in result)
             {
